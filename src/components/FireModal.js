@@ -27,7 +27,16 @@ const FireModal = ({ show, handleClose, roomId }) => {
                 {showDetailedInfo ? (
                     <>
                         <div className="issue">
-                            <strong>{rule.description}</strong>
+                            <strong>
+                                <a
+                                    href={`https://console.redhat.com/insights/advisor/recommendations/${rule.rule_id}`}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    style={{ textDecoration: 'none', color: 'inherit' }}
+                                >
+                                    {rule.description}
+                                </a>
+                            </strong>
                         </div>
                         <div className="impact">
                             <strong>Impacto:</strong> {rule.impact.name} - {rule.impact.impact}
