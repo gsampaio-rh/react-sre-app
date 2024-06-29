@@ -345,14 +345,14 @@ body {
     z-index: 1000;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     font-size: 0.9rem;
-}
-
-/* Modal header */
+}/* Modal header */
 .modal-header {
     border-bottom: none;
     padding: 1rem 1.5rem;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
+    position: relative;
+    /* Added for absolute positioning of the alert icon */
 }
 
 .modal-header.warning {
@@ -408,7 +408,6 @@ body {
     border-radius: 5px;
     margin-bottom: 0.5rem;
     font-size: 0.9rem;
-    cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
@@ -416,19 +415,23 @@ body {
     background-color: #e0e0e0;
 }
 
-/* Alert icon in modal footer */
+/* Alert icon */
 .alert-icon {
     width: 48px;
     height: 48px;
-    margin-bottom: 15px;
-    /* vertical-align: middle; */
-    /* margin-right: 10px; */
+    animation: flash 1.5s infinite;
+    position: absolute;
+    /* Added for absolute positioning */
+    top: 1px;
+    /* Adjust as needed */
+    right: 10px;
+    /* Adjust as needed */
 }
 
 /* Modal footer */
 .modal-footer {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
     border-top: none;
     padding: 1rem 1.5rem;
@@ -440,20 +443,13 @@ body {
     font-size: 0.9rem;
 }
 
-/* Button hover effect */
-.modal-footer .btn:hover {
-    background: #ddd;
-    color: #333;
-}
-
+/* Logo */
 .modal-footer .logo {
     width: 100px;
+    margin-right: 250px;
     /* Adjust the size as needed */
-    margin-right: 190px;
-    /* Add some space between the button and the logo */
 }
 
-/* Revision dates styles */
 .revision-dates {
     margin-top: 10px;
     font-size: 12px;
