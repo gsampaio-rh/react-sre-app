@@ -122,6 +122,7 @@
     /* width: 50px; */
     height: 100px;
     z-index: 10;
+    cursor: pointer;
 }
 
 .room .affected {

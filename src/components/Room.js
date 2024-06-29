@@ -1,11 +1,20 @@
 import React, { useState } from 'react';
+import FireModal from './FireModal'; // Import the FireModal component
 
 function Room({ id, name, dimensions, initialPeople, backgroundColor, doorPosition, showComponentDetails, isAffected, hasFire }) {
     const [peopleCount, setPeopleCount] = useState(initialPeople);
+    const [showFireModal, setShowFireModal] = useState(false);
 
     const changePersonCount = (change) => {
         setPeopleCount(prevCount => Math.max(0, prevCount + change));
     };
+
+    const handleFireIconClick = (e) => {
+        e.stopPropagation();
+        setShowFireModal(true);
+    };
+
+    const handleCloseFireModal = () => setShowFireModal(false);
 
     return (
         <div
@@ -25,6 +34,7 @@ function Room({ id, name, dimensions, initialPeople, backgroundColor, doorPositi
                     src="/img/fire-icon.png"
                     className="fire-icon"
                     alt="Fire"
+                    onClick={handleFireIconClick}
                 />
             )}
             <div className="button-container">
@@ -47,6 +57,11 @@ function Room({ id, name, dimensions, initialPeople, backgroundColor, doorPositi
                     -
                 </button>
             </div>
+            <FireModal
+                show={showFireModal}
+                handleClose={handleCloseFireModal}
+                roomId={id}
+            />
         </div>
     );
 }
