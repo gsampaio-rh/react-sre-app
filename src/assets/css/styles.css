@@ -204,6 +204,14 @@ body {
     font-size: 35px;
 }
 
+.hall-top{
+    margin-top: 10px;
+}
+
+.hall-bottom {
+    margin-bottom: 10px;
+}
+
 .hall .fire-extinguisher,
 .hall .exit-sign,
 .hall .elevator {

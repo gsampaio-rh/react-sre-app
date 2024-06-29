@@ -8,14 +8,7 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-      <div className="container mt-5">
-        <div className="container d-flex align-items-center justify-content-center">
-          <div className="text-center">
-            <h1 className="my-5" id="floor-title">SRE Firefighters</h1>
-            <Floor />
-          </div>
-        </div>
-      </div>
+      <Floor />
       <Footer />
     </div>
   );
