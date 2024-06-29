@@ -1,4 +1,6 @@
 import React from 'react';
+import Hall from './Hall';
+import Stairs from './Stairs';
 
 function ExitArea({ id, position, hasElevator, hasFireExtinguisher, showComponentDetails, affectedEquipment }) {
     const handleClick = (event, componentId) => {
@@ -16,61 +18,33 @@ function ExitArea({ id, position, hasElevator, hasFireExtinguisher, showComponen
             {position === 'bottom' ? (
                 <>
                     <div className="row justify-content-md-center">
-                        <div className={`hall ${position}`} id={`hall-${position}`}>
-                            {hasElevator && (
-                                <img
-                                    src="/img/elevator.png"
-                                    className={`elevator ${isElevatorAffected ? 'flash' : ''}`}
-                                    alt="Elevador"
-                                    onClick={(e) => handleClick(e, 'elevator')}
-                                />
-                            )}
-                            {hasFireExtinguisher && (
-                                <img
-                                    src="/img/extinguisher.png"
-                                    className={`fire-extinguisher ${isExtinguisherAffected ? 'flash' : ''}`}
-                                    alt="Extintor de Incêndio"
-                                    onClick={(e) => handleClick(e, 'fire_extinguisher')}
-                                />
-                            )}
-                            <img src="/img/exit-sign.jpg" className="exit-sign" alt="Sinal de Saída" />
-                        </div>
+                        <Hall
+                            position={position}
+                            hasElevator={hasElevator}
+                            isElevatorAffected={isElevatorAffected}
+                            hasFireExtinguisher={hasFireExtinguisher}
+                            isExtinguisherAffected={isExtinguisherAffected}
+                            handleClick={handleClick}
+                        />
                     </div>
                     <div className="row justify-content-md-center">
-                        <div className={`stairs stairs-${position}`} id={`stairs-${position}`}>
-                            <img src="/img/stairs.png" className="stairs-icon" alt="Escadas" />
-                            <div className={`door-frame-${position === 'top' ? 'bottom' : 'top'}`}></div>
-                        </div>
+                        <Stairs position={position} />
                     </div>
                 </>
             ) : (
                 <>
                     <div className="row justify-content-md-center">
-                        <div className={`stairs stairs-${position}`} id={`stairs-${position}`}>
-                            <img src="/img/stairs.png" className="stairs-icon" alt="Escadas" />
-                            <div className={`door-frame-${position === 'top' ? 'bottom' : 'top'}`}></div>
-                        </div>
+                        <Stairs position={position} />
                     </div>
                     <div className="row justify-content-md-center">
-                        <div className={`hall ${position}`} id={`hall-${position}`}>
-                            {hasElevator && (
-                                <img
-                                    src="/img/elevator.png"
-                                    className={`elevator ${isElevatorAffected ? 'flash' : ''}`}
-                                    alt="Elevador"
-                                    onClick={(e) => handleClick(e, 'elevator')}
-                                />
-                            )}
-                            {hasFireExtinguisher && (
-                                <img
-                                    src="/img/extinguisher.png"
-                                    className={`fire-extinguisher ${isExtinguisherAffected ? 'flash' : ''}`}
-                                    alt="Extintor de Incêndio"
-                                    onClick={(e) => handleClick(e, 'fire_extinguisher')}
-                                />
-                            )}
-                            <img src="/img/exit-sign.jpg" className="exit-sign" alt="Sinal de Saída" />
-                        </div>
+                        <Hall
+                            position={position}
+                            hasElevator={hasElevator}
+                            isElevatorAffected={isElevatorAffected}
+                            hasFireExtinguisher={hasFireExtinguisher}
+                            isExtinguisherAffected={isExtinguisherAffected}
+                            handleClick={handleClick}
+                        />
                     </div>
                 </>
             )}
