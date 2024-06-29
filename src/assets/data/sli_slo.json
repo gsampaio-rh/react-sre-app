@@ -1,0 +1,38 @@
+[
+    {
+        "id": "tempoResposta",
+        "value": "40",
+        "label": "Tempo de Resposta (segundos)",
+        "icon": "faHourglassHalf",
+        "sli": 99.99,
+        "slo": 99.95,
+        "description": "da resposta abaixo de 1 minuto."
+    },
+    {
+        "id": "quantidadePessoas",
+        "value": "200",
+        "label": "Quantidade de Pessoas por Dia",
+        "icon": "faUsers",
+        "sli": 95,
+        "slo": 90,
+        "description": "das pessoas atendidas."
+    },
+    {
+        "id": "satisfacaoUsuarios",
+        "value": "20",
+        "label": "Satisfação dos Usuários",
+        "icon": "faThumbsUp",
+        "sli": 90,
+        "slo": 85,
+        "description": "dos usuários satisfeitos."
+    },
+    {
+        "id": "manutencoesRealizadas",
+        "value": "5",
+        "label": "Manutenções Realizadas",
+        "icon": "faWrench",
+        "sli": 85,
+        "slo": 80,
+        "description": "das manutenções realizadas com sucesso."
+    }
+]

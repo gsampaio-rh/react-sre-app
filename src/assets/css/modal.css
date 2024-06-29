@@ -301,3 +301,50 @@
     width: 90%;
     /* Ensure it fits within the box */
 }
+
+
+.chart-icon-container {
+    position: relative;
+}
+
+.chart-icon {
+    font-size: 20px;
+    position: absolute;
+    top: 0px;
+    left: 80px;
+    cursor: pointer;
+}
+
+.chart-tooltip {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.chart-icon-container:hover .chart-tooltip {
+    display: block;
+}
+
+.chart-tooltip {
+    position: absolute;
+    top: -150px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 180px;
+    height: 100px;
+    background: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    display: none;
+}
+
+.chart-icon-container:hover .chart-tooltip {
+    display: block;
+}
+
+.chart-tooltip img {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+}
