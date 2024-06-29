@@ -240,14 +240,20 @@
 .metric-back {
     color: #333;
     transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .metric-back.positive {
-    background: #e9f8ec;
+    background: #e0f7e4;
+    border: 1px solid #b2e0b9;
 }
 
 .metric-back.negative {
-    background: #f8e9e9;
+    background: #f7e0e0;
+    border: 1px solid #e0b2b2;
 }
 
 .metric-front .icon {
@@ -260,6 +266,7 @@
     font-size: 2rem;
     font-weight: bold;
     margin: 0;
+    color: inherit;
 }
 
 .metric-label {
@@ -268,10 +275,29 @@
 }
 
 .metric-sli {
-    font-size: 1rem;
-    padding: 0.3rem 0.5rem;
-    border-radius: 5px;
-    width: 100%;
+    font-size: 1.2rem;
+    font-weight: bold;
     text-align: center;
-    box-sizing: border-box;
+    margin-top: 0px;
+}
+
+.metric-back .metric-percentage {
+    font-size: 2.5rem;
+    /* Adjust font size if necessary */
+    font-weight: bold;
+    margin: 0.5rem 0;
+}
+
+.metric-back .metric-description {
+    font-size: 0.9rem;
+    /* Adjust font size for the description */
+    text-align: center;
+    color: #6c757d;
+    /* Lighter color */
+    margin: 0.5rem 0;
+    /* Add margin to create space around the text */
+    word-wrap: break-word;
+    /* Ensure long text wraps */
+    width: 90%;
+    /* Ensure it fits within the box */
 }
