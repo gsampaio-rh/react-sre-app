@@ -1,0 +1,11 @@
+[
+    { "time": "15:52:00", "event": "Relatos de cheiro de fumaça nas proximidades das salas AZUL e VERDE" },
+    { "time": "15:57:00", "event": "Alarmes de incêndio dispararam" },
+    { "time": "16:02:00", "event": "Equipe de segurança verifica a origem do fogo" },
+    { "time": "16:07:00", "event": "Início do uso de extintores e acionamento dos sprinklers" },
+    { "time": "16:22:00", "event": "Chegada dos bombeiros" },
+    { "time": "16:52:00", "event": "Incêndio parcialmente controlado" },
+    { "time": "17:22:00", "event": "Incêndio totalmente controlado" },
+    { "time": "17:52:00", "event": "Início da inspeção preliminar" },
+    { "time": "18:22:00", "event": "Área isolada para investigação" }
+]

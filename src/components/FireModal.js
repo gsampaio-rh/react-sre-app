@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { Modal, Button } from 'react-bootstrap';
-import ruleData from '../assets/data/rule_impacting.json';
 import { useInsightsContext } from '../contexts/InsightsContext';
+import ruleData from '../assets/data/rule_impacting.json';
+import initialReport from '../assets/data/initial_report.json';
+import logs from '../assets/data/logs.json';
 
 const FireModal = ({ show, handleClose, roomId }) => {
     const [showDetailedInfo, setShowDetailedInfo] = useState(false);
@@ -55,9 +57,19 @@ const FireModal = ({ show, handleClose, roomId }) => {
                         </div>
                     </>
                 ) : (
-                    <div className="initial-info" style={{ padding: '20px', fontSize: '16px', color: '#333' }}>
-                        <p>Há um incêndio nesta sala. Por favor, evacue imediatamente.</p>
-                    </div>
+                        <div className="initial-info" style={{ padding: '20px', fontSize: '16px', color: '#333' }}>
+                            <h4>Incidente de Incêndio</h4>
+                            <p><br /><strong>🚨🚨🚨🚨🚨 Há um incêndio nesta sala.🚨🚨🚨🚨🚨<br /><br />🏃🏃‍♀️🏃‍♂️Por favor, evacue imediatamente.🏃‍♂️‍➡️🏃‍♀️‍➡️🏃‍➡️</strong></p>
+                            <p><strong>Data e Hora:</strong> {initialReport.date} às {initialReport.time}</p>
+                            <p><strong>Localização:</strong> {initialReport.location}</p>
+                            <p><strong>Duração:</strong> {initialReport.duration}</p>
+                            <h5>Equipe Envolvida:</h5>
+                            <ul>
+                                {initialReport.involvedTeams.map((team, index) => (
+                                    <li key={index}>{team}</li>
+                                ))}
+                            </ul>
+                        </div>
                 )}
             </Modal.Body>
             <Modal.Footer style={{ justifyContent: 'space-between' }}>

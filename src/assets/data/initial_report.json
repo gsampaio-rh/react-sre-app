@@ -1,0 +1,65 @@
+{
+    "date": "25 de Junho",
+    "time": "15:52:00",
+    "location": "Salas AZUL e VERDE no 24º Andar",
+    "duration": "Aproximadamente 2 horas",
+    "impact": {
+        "evacuation": "Evacuação completa do prédio",
+        "damage": "Danos significativos nas salas AZUL e VERDE",
+        "operations": "Interrupção das operações em todo o andar afetado"
+    },
+    "sequenceOfEvents": [
+        {
+            "time": "15:52",
+            "description": "Relatos de cheiro de fumaça nas proximidades das salas AZUL e VERDE"
+        },
+        {
+            "time": "15:57",
+            "description": "Alarmes de incêndio dispararam e o prédio foi evacuado"
+        },
+        {
+            "time": "16:02",
+            "description": "Equipe de segurança verificou a origem do fogo"
+        },
+        {
+            "time": "16:07",
+            "description": "Uso de extintores de incêndio iniciados, seguido pelo acionamento dos sistemas de sprinklers"
+        },
+        {
+            "time": "16:22",
+            "description": "Bombeiros chegaram ao local e começaram o combate ao incêndio"
+        },
+        {
+            "time": "17:22",
+            "description": "Incêndio controlado e extinto pelos bombeiros"
+        },
+        {
+            "time": "17:52",
+            "description": "Início da inspeção preliminar pelos bombeiros e equipe de manutenção"
+        }
+    ],
+    "suspectedCause": "Curto-circuito em um painel elétrico localizado na sala AZUL",
+    "immediateMeasures": [
+        "Desligamento da eletricidade",
+        "Evacuação do prédio",
+        "Combate ao fogo com extintores e sprinklers",
+        "Isolamento da área"
+    ],
+    "involvedTeams": [
+        "Segurança do Prédio",
+        "Equipe de Manutenção",
+        "Bombeiros",
+        "Gestão do Prédio"
+    ],
+    "initialImpact": {
+        "operational": "Interrupção das atividades no andar afetado, impacto em operações críticas",
+        "financial": "Custos iniciais estimados para reparos e substituição de equipamentos danificados",
+        "safety": "Garantia de que todos os ocupantes foram evacuados sem ferimentos"
+    },
+    "nextSteps": [
+        "Investigação detalhada",
+        "Documentação do post-mortem",
+        "Reparos e manutenções",
+        "Revisão de procedimentos de segurança"
+    ]
+}
