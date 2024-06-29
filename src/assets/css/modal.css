@@ -164,6 +164,30 @@
     color: #555;
 }
 
+.icon {
+    font-size: 1.5em;
+    color: #4b79ff;
+    margin-bottom: 0.5rem;
+}
+
+.modal-body .component-details {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.modal-body .component-details span {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.modal-body .component-details span svg {
+    font-size: 1.2em;
+    color: #4b79ff;
+}
+
 .metrics-details {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -197,26 +221,19 @@
     margin: 0;
 }
 
-.icon {
-    font-size: 1.5em;
-    color: #4b79ff;
-    margin-bottom: 0.5rem;
+.metric-sli {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    padding: 0.5rem;
+    border-radius: 5px;
 }
 
-.modal-body .component-details {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-bottom: 20px;
+.metric-sli.positive {
+    color: #28a745;
+    background: #e9f8ec;
 }
 
-.modal-body .component-details span {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.modal-body .component-details span svg {
-    font-size: 1.2em;
-    color: #4b79ff;
+.metric-sli.negative {
+    color: #dc3545;
+    background: #f8d7da;
 }

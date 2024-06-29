@@ -7,6 +7,7 @@ import MetricsDetails from './MetricsDetails';
 const InfoModal = ({ show, handleClose, componentData }) => {
     const { isInsightsEnabled } = useInsightsContext();
     const [showMetrics, setShowMetrics] = useState(false);
+    const [selectedMetric, setSelectedMetric] = useState(null);
 
     if (!componentData) return null;
 
@@ -14,6 +15,10 @@ const InfoModal = ({ show, handleClose, componentData }) => {
 
     const toggleMetrics = () => {
         setShowMetrics(!showMetrics);
+    };
+
+    const handleMetricClick = (metricId) => {
+        setSelectedMetric(selectedMetric === metricId ? null : metricId);
     };
 
     return (
@@ -29,7 +34,12 @@ const InfoModal = ({ show, handleClose, componentData }) => {
                     />
                 </div>
                 <ComponentDetails componentData={componentData} />
-                {showMetrics && <MetricsDetails />}
+                {showMetrics && (
+                    <MetricsDetails
+                        onMetricClick={handleMetricClick}
+                        selectedMetric={selectedMetric}
+                    />
+                )}
             </Modal.Body>
             <Modal.Footer>
                 <Button variant="secondary" onClick={handleClose}>
