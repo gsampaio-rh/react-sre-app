@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Sidebar({ isVisible, handleClose }) {
+function Sidebar({ isVisible, handleClose, isInsightsEnabled, toggleInsights }) {
     return (
         <div className={`sidebar ${isVisible ? 'visible' : ''}`}>
             <div className="sidebar-header">
@@ -8,8 +8,11 @@ function Sidebar({ isVisible, handleClose }) {
                 <button className="close-btn" onClick={handleClose}>&times;</button>
             </div>
             <div className="sidebar-content">
-                {/* Add your sidebar content here */}
-                <p>Here you can add your configuration settings.</p>
+                <label className="switch">
+                    <input type="checkbox" checked={isInsightsEnabled} onChange={toggleInsights} />
+                    <span className="slider round"></span>
+                </label>
+                <span>Enable Red Hat Insights</span>
             </div>
         </div>
     );

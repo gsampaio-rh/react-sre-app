@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './assets/css/styles.css';
 import './assets/css/floor.css';
 import './assets/css/room.css';
@@ -11,7 +11,8 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Floor from './components/Floor';
 import ComponentModal from './components/ComponentModal';
-import Sidebar from './components/Sidebar';  // Import the Sidebar component
+import Sidebar from './components/Sidebar';
+import { useInsights } from './hooks/useInsights';
 import infraData from './assets/data/infra_data.json';
 import cveData from './assets/data/active_cve_data.json';
 
@@ -19,36 +20,10 @@ function App() {
   const [showModal, setShowModal] = useState(false);
   const [selectedComponent, setSelectedComponent] = useState(null);
   const [selectedProblem, setSelectedProblem] = useState(null);
-  const [affectedEquipment, setAffectedEquipment] = useState([]);
   const [isSidebarVisible, setIsSidebarVisible] = useState(false);
+  const [isInsightsEnabled, setIsInsightsEnabled] = useState(false);
 
-  useEffect(() => {
-    const affectedEquipmentSet = new Set();
-    const matchingCVEs = [];
-
-    for (const componentId in infraData.equipment) {
-      const component = infraData.equipment[componentId];
-      const relatedProblems = component.related_problems;
-
-      relatedProblems.forEach(problemId => {
-        const problem = infraData.problems[problemId];
-
-        const matchingCVE = cveData.data.find(cve =>
-          cve.attributes.rules.some(rule => rule.associated_cves.includes(problemId))
-        );
-
-        if (matchingCVE) {
-          affectedEquipmentSet.add(componentId);
-          matchingCVEs.push(matchingCVE.attributes.synopsis);
-        }
-      });
-    }
-
-    setAffectedEquipment(Array.from(affectedEquipmentSet));
-
-    console.log('Affected Equipment:', Array.from(affectedEquipmentSet));
-    console.log('Matching CVEs:', matchingCVEs);
-  }, []);
+  const affectedEquipment = useInsights(isInsightsEnabled);
 
   const handleClose = () => setShowModal(false);
 
@@ -66,15 +41,17 @@ function App() {
       const problemId = relatedProblems[0];
       problemData = infraData.problems[problemId];
 
-      const matchingCVE = cveData.data.find(cve =>
-        cve.attributes.rules.some(rule => rule.associated_cves.includes(problemId))
-      );
+      if (isInsightsEnabled) {
+        const matchingCVE = cveData.data.find(cve =>
+          cve.attributes.rules.some(rule => rule.associated_cves.includes(problemId))
+        );
 
-      if (matchingCVE) {
-        problemData = {
-          ...problemData,
-          cveDetails: matchingCVE.attributes
-        };
+        if (matchingCVE) {
+          problemData = {
+            ...problemData,
+            cveDetails: matchingCVE.attributes
+          };
+        }
       }
     }
 
@@ -84,11 +61,11 @@ function App() {
   };
 
   const handleMenuClick = (section) => {
-    if (section === 'config') {
-      setIsSidebarVisible(true);
-    } else {
-      setIsSidebarVisible(false);
-    }
+    setIsSidebarVisible(section === 'config');
+  };
+
+  const toggleInsights = () => {
+    setIsInsightsEnabled(!isInsightsEnabled);
   };
 
   return (
@@ -102,7 +79,12 @@ function App() {
         componentData={selectedComponent}
         problemData={selectedProblem}
       />
-      <Sidebar isVisible={isSidebarVisible} handleClose={() => setIsSidebarVisible(false)} />
+      <Sidebar
+        isVisible={isSidebarVisible}
+        handleClose={() => setIsSidebarVisible(false)}
+        isInsightsEnabled={isInsightsEnabled}
+        toggleInsights={toggleInsights}
+      />
     </div>
   );
 }
