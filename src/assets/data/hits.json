@@ -1,0 +1,54 @@
+[
+    {
+        "hostname": "ansible-1.example.com",
+        "rhel_version": "8.7",
+        "uuid": "070aeebb-644f-451d-85e0-fb8c878e9846",
+        "last_seen": "2024-06-29T00:19:27.122072+00:00",
+        "title": "Nginx performance can be improved when pinning Nginx worker processes to individual CPUs",
+        "solution_url": "https://access.redhat.com/node/7035856",
+        "total_risk": 1,
+        "likelihood": 2,
+        "publish_date": "2022-12-18T14:31:22+00:00",
+        "stale_at": "2024-06-30T05:19:27.122072+00:00",
+        "results_url": "https://console.redhat.com/insights/advisor/recommendations/nginx_worker_cpu_affinity%7CNGINX_WORKER_CPU_AFFINITY/070aeebb-644f-451d-85e0-fb8c878e9846/"
+    },
+    {
+        "hostname": "ansible-1.example.com",
+        "rhel_version": "8.7",
+        "uuid": "070aeebb-644f-451d-85e0-fb8c878e9846",
+        "last_seen": "2024-06-29T00:19:27.122072+00:00",
+        "title": "The postgresql database performance decreases when the tuned best practices are not applied",
+        "solution_url": "https://access.redhat.com/node/6662091",
+        "total_risk": 2,
+        "likelihood": 3,
+        "publish_date": "2022-04-03T05:13:00+00:00",
+        "stale_at": "2024-06-30T05:19:27.122072+00:00",
+        "results_url": "https://console.redhat.com/insights/advisor/recommendations/tuned_profiles_postgresql%7CTUNED_PROFILES_POSTGRESQL/070aeebb-644f-451d-85e0-fb8c878e9846/"
+    },
+    {
+        "hostname": "f2450597-55a5-48bf-8199-099a7b497b94",
+        "rhel_version": "8.10",
+        "uuid": "f2450597-55a5-48bf-8199-099a7b497b94",
+        "last_seen": "2024-06-27T22:10:14.195724+00:00",
+        "title": "Decreased security: auditd not running",
+        "solution_url": "https://access.redhat.com/node/1240243",
+        "total_risk": 1,
+        "likelihood": 1,
+        "publish_date": "2017-06-19T12:00:00+00:00",
+        "stale_at": "2024-06-29T03:10:14.195724+00:00",
+        "results_url": "https://console.redhat.com/insights/advisor/recommendations/hardening_logging_auditd%7CHARDENING_LOGGING_5_AUDITD/f2450597-55a5-48bf-8199-099a7b497b94/"
+    },
+    {
+        "hostname": "f2450597-55a5-48bf-8199-099a7b497b94",
+        "rhel_version": "8.10",
+        "uuid": "f2450597-55a5-48bf-8199-099a7b497b94",
+        "last_seen": "2024-06-27T22:10:14.195724+00:00",
+        "title": "Decreased security: OpenSSH Ciphers and MACs settings (configuration files unavailable)",
+        "solution_url": "https://access.redhat.com/node/3351161",
+        "total_risk": 3,
+        "likelihood": 4,
+        "publish_date": "2024-02-04T14:33:25+00:00",
+        "stale_at": "2024-06-29T03:10:14.195724+00:00",
+        "results_url": "https://console.redhat.com/insights/advisor/recommendations/hardening_ssh_hmac_cipher%7COPENSSH_HARDENING_HMAC_CIPHER_2_SOME_PARSERS_UNAVAILABLE/f2450597-55a5-48bf-8199-099a7b497b94/"
+    }
+]

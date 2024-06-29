@@ -1,0 +1,125 @@
+{
+    "total": 3,
+    "count": 3,
+    "page": 1,
+    "per_page": 50,
+    "results": [
+        {
+            "insights_id": "72d33012-768c-45cb-93c3-480c5ad953b3",
+            "subscription_manager_id": "72d33012-768c-45cb-93c3-480c5ad953b3",
+            "satellite_id": null,
+            "bios_uuid": null,
+            "ip_addresses": null,
+            "fqdn": null,
+            "mac_addresses": [
+                "4a:dd:10:10:35:17",
+                "00:00:00:00:00:00"
+            ],
+            "provider_id": null,
+            "provider_type": null,
+            "id": "431f1c04-83d1-4e50-865d-2e45d8770d82",
+            "account": "6356438",
+            "org_id": "12449603",
+            "display_name": "431f1c04-83d1-4e50-865d-2e45d8770d82",
+            "ansible_host": null,
+            "facts": [],
+            "reporter": "puptoo",
+            "per_reporter_staleness": {
+                "puptoo": {
+                    "check_in_succeeded": true,
+                    "stale_timestamp": "2024-07-01T01:27:46.415568+00:00",
+                    "last_check_in": "2024-06-29T20:27:46.415568+00:00",
+                    "stale_warning_timestamp": "2024-07-06T20:27:46.415568+00:00",
+                    "culled_timestamp": "2024-07-13T20:27:46.415568+00:00"
+                }
+            },
+            "stale_timestamp": "2024-07-01T01:27:46.715868+00:00",
+            "stale_warning_timestamp": "2024-07-06T20:27:46.715868+00:00",
+            "culled_timestamp": "2024-07-13T20:27:46.715868+00:00",
+            "created": "2024-06-29T20:27:46.715864+00:00",
+            "updated": "2024-06-29T20:27:46.715868+00:00",
+            "groups": []
+        },
+        {
+            "insights_id": "3024900d-2e80-4a2a-a4d9-6de8685c83d2",
+            "subscription_manager_id": "3024900d-2e80-4a2a-a4d9-6de8685c83d2",
+            "satellite_id": null,
+            "bios_uuid": "ec2ca392-3bcb-7736-df44-06b40ff6c4e9",
+            "ip_addresses": [
+                "192.168.0.64"
+            ],
+            "fqdn": "ansible-1.example.com",
+            "mac_addresses": [
+                "02:29:dd:91:b7:eb",
+                "00:00:00:00:00:00"
+            ],
+            "provider_id": "i-0931b07eac75d6280",
+            "provider_type": "aws",
+            "id": "070aeebb-644f-451d-85e0-fb8c878e9846",
+            "account": "6356438",
+            "org_id": "12449603",
+            "display_name": "ansible-1.example.com",
+            "ansible_host": null,
+            "facts": [],
+            "reporter": "puptoo",
+            "per_reporter_staleness": {
+                "cloud-connector": {
+                    "check_in_succeeded": true,
+                    "stale_timestamp": "2024-06-30T03:18:05.056821+00:00",
+                    "last_check_in": "2024-06-28T22:18:05.056821+00:00",
+                    "stale_warning_timestamp": "2024-07-05T22:18:05.056821+00:00",
+                    "culled_timestamp": "2024-07-12T22:18:05.056821+00:00"
+                },
+                "puptoo": {
+                    "check_in_succeeded": true,
+                    "stale_timestamp": "2024-06-30T05:19:27.119678+00:00",
+                    "last_check_in": "2024-06-29T00:19:27.119678+00:00",
+                    "stale_warning_timestamp": "2024-07-06T00:19:27.119678+00:00",
+                    "culled_timestamp": "2024-07-13T00:19:27.119678+00:00"
+                }
+            },
+            "stale_timestamp": "2024-06-30T05:19:27.122072+00:00",
+            "stale_warning_timestamp": "2024-07-06T00:19:27.122072+00:00",
+            "culled_timestamp": "2024-07-13T00:19:27.122072+00:00",
+            "created": "2024-06-27T22:13:23.354517+00:00",
+            "updated": "2024-06-29T00:19:27.122072+00:00",
+            "groups": []
+        },
+        {
+            "insights_id": "2157fce9-190c-4339-88fe-0ca5546aea58",
+            "subscription_manager_id": "2157fce9-190c-4339-88fe-0ca5546aea58",
+            "satellite_id": null,
+            "bios_uuid": null,
+            "ip_addresses": null,
+            "fqdn": null,
+            "mac_addresses": [
+                "86:22:ca:52:a4:c0",
+                "00:00:00:00:00:00"
+            ],
+            "provider_id": null,
+            "provider_type": null,
+            "id": "f2450597-55a5-48bf-8199-099a7b497b94",
+            "account": "6356438",
+            "org_id": "12449603",
+            "display_name": "f2450597-55a5-48bf-8199-099a7b497b94",
+            "ansible_host": null,
+            "facts": [],
+            "reporter": "puptoo",
+            "per_reporter_staleness": {
+                "puptoo": {
+                    "check_in_succeeded": true,
+                    "stale_timestamp": "2024-06-29T03:10:13.321156+00:00",
+                    "last_check_in": "2024-06-27T22:10:13.321156+00:00",
+                    "stale_warning_timestamp": "2024-07-04T22:10:13.321156+00:00",
+                    "culled_timestamp": "2024-07-11T22:10:13.321156+00:00"
+                }
+            },
+            "stale_timestamp": "2024-06-29T03:10:14.195724+00:00",
+            "stale_warning_timestamp": "2024-07-04T22:10:14.195724+00:00",
+            "culled_timestamp": "2024-07-11T22:10:14.195724+00:00",
+            "created": "2024-06-27T22:10:14.195715+00:00",
+            "updated": "2024-06-27T22:10:14.195724+00:00",
+            "groups": []
+        }
+    ]
+}

@@ -1,0 +1,47 @@
+{
+    "data": [
+        {
+            "id": "6a75ec3f-e750-45af-9fdf-1ade342d9907",
+            "created": "2024-06-29T20:27:47.45789",
+            "bundle": "Red Hat Enterprise Linux",
+            "application": "Patch",
+            "event_type": "New advisory",
+            "payload": null,
+            "actions": []
+        },
+        {
+            "id": "617b5a23-76b6-497e-9741-c524cc9c734c",
+            "created": "2024-06-27T22:14:43.946311",
+            "bundle": "Red Hat Enterprise Linux",
+            "application": "Advisor",
+            "event_type": "New recommendation",
+            "payload": null,
+            "actions": []
+        },
+        {
+            "id": "052ebcec-1b69-4ea0-b4e9-d343ba95d7d7",
+            "created": "2024-06-27T22:10:32.039446",
+            "bundle": "Red Hat Enterprise Linux",
+            "application": "Advisor",
+            "event_type": "New recommendation",
+            "payload": null,
+            "actions": []
+        },
+        {
+            "id": "a5356705-a935-404b-9839-1addf1049334",
+            "created": "2024-06-24T08:09:19.089729",
+            "bundle": "Console",
+            "application": "User Access",
+            "event_type": "Red Hat role in platform default access group updated",
+            "payload": null,
+            "actions": []
+        }
+    ],
+    "links": {
+        "last": "/api/notifications/v1.0/notifications/events?limit=20&offset=0",
+        "first": "/api/notifications/v1.0/notifications/events?limit=20&offset=0"
+    },
+    "meta": {
+        "count": 4
+    }
+}

@@ -1,0 +1,181 @@
+{
+    "meta": {
+        "count": 4
+    },
+    "links": {
+        "first": "/api/insights/v1/rule/?impacting=true&limit=20&offset=0&rule_status=enabled&sort=-total_risk",
+        "next": "/api/insights/v1/rule/?impacting=true&limit=20&offset=0&rule_status=enabled&sort=-total_risk",
+        "previous": "/api/insights/v1/rule/?impacting=true&limit=20&offset=0&rule_status=enabled&sort=-total_risk",
+        "last": "/api/insights/v1/rule/?impacting=true&limit=20&offset=0&rule_status=enabled&sort=-total_risk"
+    },
+    "data": [
+        {
+            "rule_id": "hardening_ssh_hmac_cipher|OPENSSH_HARDENING_HMAC_CIPHER_2_SOME_PARSERS_UNAVAILABLE",
+            "created_at": "2019-04-02T16:40:29.609496Z",
+            "updated_at": "2024-06-24T20:33:32.515623Z",
+            "description": "Decreased security: OpenSSH Ciphers and MACs settings (configuration files unavailable)",
+            "active": true,
+            "category": {
+                "id": 2,
+                "name": "Security"
+            },
+            "impact": {
+                "name": "Decreased Security",
+                "impact": 2
+            },
+            "likelihood": 4,
+            "node_id": "3351161",
+            "tags": "security",
+            "playbook_count": 0,
+            "reboot_required": false,
+            "publish_date": "2024-02-04T14:33:25Z",
+            "summary": "HMAC algorithms and ciphers, which have been identified as insecure, are configured for use by `sshd`. \n",
+            "generic": "HMAC algorithms and ciphers, which have been identified as insecure, are configured for use by `sshd`. \n",
+            "reason": "Potentially insecure SSH settings were detected on the host and it could be more susceptible to attack.\n\nSome configuration files are possibly not present on the host, invalid, or set to not be uploaded by `insights-client`.\n\nIf the files are invalid or not present on the host, `sshd` might run in an unsupported configuration. If the files are set to not be uploaded by `insights-client`, the `sshd`'s configuration files can't be checked for potential issues.\n\n{{? 1 == pydata.unavailable_files.length }}\nThe affected file is `{{=pydata.unavailable_files[0]}}`.\n{{??}}\nThe following files are affected:{{~pydata.unavailable_files: uf}}\n* `{{=uf}}`{{~}}\n{{?}}\n\n",
+            "more_info": "{{ var rhel_ver = pydata.rhel_version; if (! rhel_ver) { rhel_ver = 0 }; }}{{? rhel_ver == 6 }}* [Deprecated functionality in RHEL 6.9](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/6.9_technical_notes/chap-red_hat_enterprise_linux-6.9_technical_notes-deprecated_functionality)\n* [Deprecation of Insecure Algorithms and Protocols in RHEL 6.9](https://access.redhat.com/blogs/766093/posts/2787271)\n{{?? rhel_ver == 7 }}* [Deprecated functionality in RHEL 7.4](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/7.4_release_notes/chap-red_hat_enterprise_linux-7.4_release_notes-deprecated_functionality_in_rhel7)\n* [Enhancing the security of the OS with cryptography changes in Red Hat Enterprise Linux 7.4](https://access.redhat.com/blogs/766093/posts/3050871)\n{{?? rhel_ver >= 8 }}* [System-wide crypto policies in RHEL 8](https://access.redhat.com/articles/3666211)\n* For historical context, see [Deprecated functionality in RHEL 7.4](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/7.4_release_notes/chap-red_hat_enterprise_linux-7.4_release_notes-deprecated_functionality_in_rhel7) and [Enhancing the security of the OS with cryptography changes in Red Hat Enterprise Linux 7.4](https://access.redhat.com/blogs/766093/posts/3050871)\n{{??}}* [Deprecated functionality in RHEL 7.4](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/7.4_release_notes/chap-red_hat_enterprise_linux-7.4_release_notes-deprecated_functionality_in_rhel7)\n* [Deprecated functionality in RHEL 6.9](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/6.9_technical_notes/chap-red_hat_enterprise_linux-6.9_technical_notes-deprecated_functionality)\n* [Enhancing the security of the OS with cryptography changes in Red Hat Enterprise Linux 7.4](https://access.redhat.com/blogs/766093/posts/3050871)\n* [Deprecation of Insecure Algorithms and Protocols in RHEL 6.9](https://access.redhat.com/blogs/766093/posts/2787271)\n* [System-wide crypto policies in RHEL 8](https://access.redhat.com/articles/3666211)\n* [How to disable specific crypto algorithms when using system-wide cryptographic policies](https://access.redhat.com/articles/7041246)\n{{?}}* The Customer Portal page for the [Red Hat Security Team](https://access.redhat.com/security/) contains more information about policies, procedures, and alerts for Red Hat Products.\n* The Security Team also maintains a frequently updated blog at [securityblog.redhat.com](https://securityblog.redhat.com).\n",
+            "impacted_systems_count": 1,
+            "reports_shown": true,
+            "rule_status": "enabled",
+            "resolution_set": [
+                {
+                    "system_type": 105,
+                    "resolution": "Red Hat recommends that you reinstall the package{{? 1 < pydata.yum_reinstall.length }}s{{?}} providing the affected file{{? 1 < pydata.unavailable_files.length }}s{{?}}{{? pydata.update_policies }} and apply the crypto policy again{{?}}.\n\n~~~\n# yum reinstall -y {{=pydata.yum_reinstall.join(\" \")}}{{? pydata.update_policies }}\n# update-crypto-policies{{?}}\n~~~\n\n**Alternatively**, review that the listed files are correct and set to be uploaded by `insights-client`.\n\nRed Hat recommends that you review the new settings and test the performed changes before applying them to production systems.\n\n\nAfter applying the remediation, refresh the results of Advisor analysis by running the `insights-client` command on the system. \n~~~ \n# insights-client \n~~~ \n",
+                    "resolution_risk": {
+                        "name": "Reinstall Package",
+                        "risk": 1
+                    },
+                    "has_playbook": false
+                }
+            ],
+            "total_risk": 3,
+            "hosts_acked_count": 0,
+            "rating": 0
+        },
+        {
+            "rule_id": "tuned_profiles_postgresql|TUNED_PROFILES_POSTGRESQL",
+            "created_at": "2022-03-28T08:08:24.170901Z",
+            "updated_at": "2024-06-24T20:34:06.998337Z",
+            "description": "The postgresql database performance decreases when the tuned best practices are not applied",
+            "active": true,
+            "category": {
+                "id": 4,
+                "name": "Performance"
+            },
+            "impact": {
+                "name": "Database Performance Loss",
+                "impact": 2
+            },
+            "likelihood": 3,
+            "node_id": "6662091",
+            "tags": "postgresql sbr_services tuned",
+            "playbook_count": 1,
+            "reboot_required": false,
+            "publish_date": "2022-04-03T05:13:00Z",
+            "summary": "The postgresql database performance decreases when the tuned best practices are not applied.\n",
+            "generic": "The postgresql database performance decreases when the tuned best practices are not applied.\n",
+            "reason": "This host is running **RHEL {{=pydata.rhel_version}}** with `postgresql` service running{{? pydata.tuned_profiles_postgresql }} and `tuned-profiles-postgresql` package installed{{?}}.\nThe `postgresql` database performance is not optimal because the following \nconfiguration{{?Object.keys(pydata.settings).length > 1}}s{{?}} do{{?Object.keys(pydata.settings).length == 1}}es{{?}} not follow the best practice of tuned **postgresql** profile:\n{{ for (var key in pydata.settings) {}}\n * **{{=key}}**: {{=pydata.settings[key]}}{{}}}\n",
+            "more_info": "",
+            "impacted_systems_count": 1,
+            "reports_shown": true,
+            "rule_status": "enabled",
+            "resolution_set": [
+                {
+                    "system_type": 105,
+                    "resolution": "Red Hat recommends that you perform the following steps:\n{{? pydata.tuned_profiles_postgresql }}\n1. Enable `postgresql` tuned profile:\n   ~~~\n   # tuned-adm profile postgresql\n   ~~~\n1. Verify the current active profile is set:\n   ~~~\n   # tuned-adm active\n   # tuned-adm verify\n   ~~~\n{{??}}\n{{? pydata.yumrepo }}\n1. Install the `tuned-profiles-postgresql` package:\n   ~~~\n   # yum install tuned-profiles-postgresql\n   ~~~\n1. Enable `postgresql` tuned profile:\n   ~~~\n   # tuned-adm profile postgresql\n   ~~~\n1. Verify the current active profile is set:\n   ~~~\n   # tuned-adm active\n   # tuned-adm verify\n   ~~~\n{{??}}\n{{var repo_name = \"rhel-\" + pydata.rhel_version.split('.')[0] + \"-for-x86_64-appstream-rpms\";}}\n1. Enable `{{=repo_name}}` subscription-manager repo:\n   ~~~\n   # subscription-manager repos --enable={{=repo_name}}\n   ~~~\n{{?}}\n1. Install the `tuned-profiles-postgresql` package:\n   ~~~\n   # yum install tuned-profiles-postgresql\n   ~~~\n1. Enable `postgresql` tuned profile:\n   ~~~\n   # tuned-adm profile postgresql\n   ~~~\n1. Verify the current active profile is set:\n   ~~~\n   # tuned-adm active\n   # tuned-adm verify\n   ~~~\n{{?}}\n\n\nAfter applying the remediation, refresh the results of Advisor analysis by running the `insights-client` command on the system. \n~~~ \n# insights-client \n~~~ \n",
+                    "resolution_risk": {
+                        "name": "Adjust Tuned Profile",
+                        "risk": 2
+                    },
+                    "has_playbook": true
+                }
+            ],
+            "total_risk": 2,
+            "hosts_acked_count": 0,
+            "rating": 0
+        },
+        {
+            "rule_id": "hardening_logging_auditd|HARDENING_LOGGING_5_AUDITD",
+            "created_at": "2019-02-07T19:02:35.858361Z",
+            "updated_at": "2024-06-24T20:33:31.943723Z",
+            "description": "Decreased security: auditd not running",
+            "active": true,
+            "category": {
+                "id": 2,
+                "name": "Security"
+            },
+            "impact": {
+                "name": "Decreased Security",
+                "impact": 2
+            },
+            "likelihood": 1,
+            "node_id": "1240243",
+            "tags": "audit cis hardening log security",
+            "playbook_count": 1,
+            "reboot_required": false,
+            "publish_date": "2017-06-19T12:00:00Z",
+            "summary": "The audit service is not enabled.\n",
+            "generic": "The audit service is not enabled.\n",
+            "reason": "{{? pydata.detected_problem_auditd_pkg_not_installed }}\nAudit package is not installed.\n\nThe `audit` package is installed on RHEL by default and provides a logging facility for security auditing purposes. Red Hat recommends that the `audit` package be installed.\n{{??}}\n{{? pydata.detected_problem_auditd_service_not_enabled }}\nAudit service is not enabled.\n\nThe `auditd` service is enabled on RHEL by default and provides a logging facility for security auditing purposes. Red Hat recommends that the `auditd` service be enabled.\n{{?}}\n{{?}}\n",
+            "more_info": "* {{ var rhel_ver = pydata.rhel_version; if (! rhel_ver) { rhel_ver = 0 }; }} {{? rhel_ver == 6 }}[Using the chkconfig Utility](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Deployment_Guide/s2-services-chkconfig.html) to configure services on RHEL 6.{{?? rhel_ver == 7 }}[Managing System Services](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/System_Administrators_Guide/sect-Managing_Services_with_systemd-Services.html) to configure services on RHEL 7.{{?? rhel_ver == 8 }}[Managing services with systemd](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_basic_system_settings/managing-services-with-systemd_configuring-basic-system-settings) to configure services on RHEL 8.{{??}}[Using the chkconfig Utility](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Deployment_Guide/s2-services-chkconfig.html) to configure services on RHEL 6.\n* [Managing System Services](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/System_Administrators_Guide/sect-Managing_Services_with_systemd-Services.html) to configure services on RHEL 7.\n* [Managing services with systemd](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_basic_system_settings/managing-services-with-systemd_configuring-basic-system-settings) to configure services on RHEL 8.{{?}}\n* The Customer Portal page for the [Red Hat Security Team](https://access.redhat.com/security/) contains more information about policies, procedures, and alerts for Red Hat products.\n* The Security Team also maintains a frequently updated blog at [securityblog.redhat.com](https://securityblog.redhat.com).\n",
+            "impacted_systems_count": 1,
+            "reports_shown": true,
+            "rule_status": "enabled",
+            "resolution_set": [
+                {
+                    "system_type": 105,
+                    "resolution": "Red Hat recommends that you perform the following adjustments:\n\n{{? pydata.detected_problem_auditd_pkg_not_installed }}\nInstall the `audit` package:\n\n~~~\n# yum install audit\n~~~\n{{??}}\n{{? pydata.detected_problem_auditd_service_not_enabled }}\nEnable the `auditd` service and start the service:\n\n{{? pydata.rhel_version == 6 }}\n~~~\n# chkconfig auditd on --level 2345\n# service auditd start\n~~~\n{{?}}\n{{? pydata.rhel_version > 6 }}\n~~~\n# systemctl enable auditd.service\n# systemctl start auditd.service\n~~~\n{{?}}\n{{?}}\n{{?}}\n\n\nAfter applying the remediation, refresh the results of Advisor analysis by running the `insights-client` command on the system. \n~~~ \n# insights-client \n~~~ \n",
+                    "resolution_risk": {
+                        "name": "Update Service Configuration",
+                        "risk": 1
+                    },
+                    "has_playbook": true
+                }
+            ],
+            "total_risk": 1,
+            "hosts_acked_count": 0,
+            "rating": 0
+        },
+        {
+            "rule_id": "nginx_worker_cpu_affinity|NGINX_WORKER_CPU_AFFINITY",
+            "created_at": "2019-11-29T00:55:46.020207Z",
+            "updated_at": "2024-06-24T20:33:56.454315Z",
+            "description": "Nginx performance can be improved when pinning Nginx worker processes to individual CPUs",
+            "active": true,
+            "category": {
+                "id": 4,
+                "name": "Performance"
+            },
+            "impact": {
+                "name": "Best Practice",
+                "impact": 1
+            },
+            "likelihood": 2,
+            "node_id": "7035856",
+            "tags": "container_support nginx performance sbr_webservers tuning webservers",
+            "playbook_count": 1,
+            "reboot_required": false,
+            "publish_date": "2022-12-18T14:31:22Z",
+            "summary": "Pinning worker processes to individual CPUs can improve the Nginx performance, e.g. higher achievable throughput and lower traffic on UPI interconnection. The best practice is to run one nginx worker process per CPU core.\n\n",
+            "generic": "Pinning worker processes to individual CPUs can improve the Nginx performance, e.g. higher achievable throughput and lower traffic on UPI interconnection. The best practice is to run one nginx worker process per CPU core.\n\n",
+            "reason": "By Default, without setting worker_cpu_affinity directive in nginx.conf, linux kernel will spread all nginx’s workers on all over CPUs. Pinning worker processes to individual CPU can improve the performance like higher achievable throughput.\n\n{{? 'host' in pydata}}\nThis host is running an Nginx server and `worker_cpu_affinity` is not configured when the value of the parameter worker_processes and CPU number are over 1.\n\n{{ for (var key in pydata.host) { }}\n&nbsp; &nbsp; &nbsp; &nbsp;  Service Name: {{=key}}\n&nbsp; &nbsp; &nbsp; &nbsp;  Worker Processes: {{=pydata.host[key][0]}}\n&nbsp; &nbsp; &nbsp; &nbsp;  Available CPU Number: {{=pydata.host[key][1]}}\n{{ } }}\n{{?}}\n\n{{? 'container' in pydata}}\nThere {{?pydata.containers_count == 1}}is a container{{??}}are containers{{?}} running nginx on this host. On the following container{{?pydata.containers_count > 1}}s{{?}}, `worker_cpu_affinity` is not configured when the value of the parameter worker_processes and CPU number are over 1.\n\n{{ for (var engine in pydata.container) { }}\n**Container Engine**: {{=engine}}\n{{ for (var image in pydata.container[engine]) { }}\n&nbsp; &nbsp;  **Image**: {{=image}}\n{{~pydata.container[engine][image]: container}} {{ for (var id in container) { }}\n&nbsp; &nbsp; &nbsp; &nbsp; Container ID: {{=id}}\n    {{ for (var package in container[id]) { }} \n&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Service Name: {{=package}} &nbsp; &nbsp; &nbsp; &nbsp; Worker Processes: {{=container[id][package][0]}} &nbsp; &nbsp; &nbsp; &nbsp; Available CPU Number: {{=container[id][package][1]}} {{ } }} {{ } }}\n  {{~}}\n{{ } }}\n&nbsp;\n{{ } }}\n&nbsp;\n{{?}}\n",
+            "more_info": "For more information, please refer to [Binds worker processes to the sets of CPUs](https://nginx.org/en/docs/ngx_core_module.html#worker_cpu_affinity).\n{{?'container' in pydata && 'docker' in pydata.container}}\n[Building containers for Docker](https://docs.docker.com/engine/reference/commandline/compose_build)\n{{?}}\n{{?'container' in pydata && 'podman' in pydata.container}}\n[Building containers for Podman](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/building_running_and_managing_containers/index)\n{{?}}\n",
+            "impacted_systems_count": 1,
+            "reports_shown": true,
+            "rule_status": "enabled",
+            "resolution_set": [
+                {
+                    "system_type": 105,
+                    "resolution": "Red Hat recommends that you set `worker_cpu_affinity` to pin worker processes to individual CPU.\n\n{{? 'host' in pydata}}\n**For nginx running on this host**:\n{{ for (var key in pydata.host) { }}\n1. Set \"worker_cpu_affinity\" in the configuration file to pin worker into individual CPU like the following example:\n   ~~~\n   ...\n       worker_cpu_affinity 0001 0010;\n   ...\n   ~~~\n   where \"0001\" indicates the first CPU and \"0010\" indicates the second CPU.\n\n   Alternatively, special value \"auto\" allows to bind worker processes automatically to available CPUs.\n   ~~~\n   ...\n      worker_cpu_affinity auto;\n   ...\n   ~~~\n1. Restart the `{{=key}}` service.\n   ~~~\n   # systemctl restart {{=key}}\n   ~~~\n{{ } }}\n{{?}}\n\n\n\n{{? \"container\" in pydata}}\n**For nginx running within container**:\n1. Rebuild the following image{{?pydata.containers_count > 1}}s{{?}} to update the nginx configuration with `worker_cpu_affinity`:\n   ~~~\n   ...\n   worker_cpu_affinity 0001 0010;\n   ...\n   ~~~\n   where \"0001\" indicates the first CPU and \"0010\" indicates the second CPU.\n\n   Alternatively, special value \"auto\" allows to bind worker processes automatically to available CPUs.\n   ~~~\n   ...\n   worker_cpu_affinity auto;\n   ...\n   ~~~\n\n    **Issue Image**\n       {{ for (var engine in pydata.container) { }}\n&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Container Engine: {{=engine}}\n       {{ for (var image in pydata.container[engine]) { }}\n&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Image: {{=image}}\n       {{ } }}\n       {{ } }}\n    \n2. Redeploy the image.\n{{?}}\n\n\nAfter applying the remediation, refresh the results of Advisor analysis by running the `insights-client` command on the system. \n~~~ \n# insights-client \n~~~ \n",
+                    "resolution_risk": {
+                        "name": "Update Service Configuration",
+                        "risk": 1
+                    },
+                    "has_playbook": true
+                }
+            ],
+            "total_risk": 1,
+            "hosts_acked_count": 0,
+            "rating": 0
+        }
+    ]
+}

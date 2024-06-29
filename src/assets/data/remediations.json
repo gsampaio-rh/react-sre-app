@@ -1,0 +1,13 @@
+{
+    "meta": {
+        "count": 0,
+        "total": 0
+    },
+    "links": {
+        "first": "/api/remediations/v1/remediations?sort=-updated_at&limit=50&offset=0",
+        "last": "/api/remediations/v1/remediations?sort=-updated_at&limit=50&offset=0",
+        "previous": null,
+        "next": null
+    },
+    "data": []
+}

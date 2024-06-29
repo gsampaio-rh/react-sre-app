@@ -12,7 +12,7 @@
         {
             "rule_id": "aap_eol|AAP_EOL_ERROR",
             "created_at": "2024-06-20T08:33:09.858024Z",
-            "updated_at": "2024-06-29T08:33:05.350935Z",
+            "updated_at": "2024-06-29T20:32:57.201422Z",
             "description": "Red Hat has discontinued technical support services as well as software maintenance services for the End-Of-Life Ansible Automation Platform",
             "active": true,
             "category": {
@@ -54,7 +54,7 @@
         {
             "rule_id": "aap_eol|AAP_EOL_INFO",
             "created_at": "2024-06-20T08:33:09.897839Z",
-            "updated_at": "2024-06-29T08:33:05.369018Z",
+            "updated_at": "2024-06-29T20:32:57.219250Z",
             "description": "Red Hat will discontinue technical support services as well as software maintenance services for End-Of-Life Ansible Automation Platform in less than 30 days",
             "active": true,
             "category": {
@@ -96,7 +96,7 @@
         {
             "rule_id": "aap_eol|AAP_EOL_WARN",
             "created_at": "2024-06-20T08:33:09.919820Z",
-            "updated_at": "2024-06-29T08:33:05.396825Z",
+            "updated_at": "2024-06-29T20:32:57.235847Z",
             "description": "Red Hat will discontinue technical support services as well as software maintenance services for End-Of-Life Ansible Automation Platform in less than 7 days",
             "active": true,
             "category": {
@@ -264,7 +264,7 @@
         {
             "rule_id": "abort_command_issued|ABORT_COMMAND_ISSUED",
             "created_at": "2019-02-07T19:02:34.744417Z",
-            "updated_at": "2024-06-29T08:33:05.492564Z",
+            "updated_at": "2024-06-29T20:32:57.297320Z",
             "description": "Performance degradation of I/O when commands timeout due to faulty storage hardware",
             "active": true,
             "category": {
