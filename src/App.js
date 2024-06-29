@@ -32,10 +32,6 @@ function App() {
     }
   }, []);
 
-  const handleAddFire = (location) => {
-    setFireLocation(location);
-  };
-
   return (
     <div className="App">
       <Navbar handleMenuClick={handleMenuClick} />

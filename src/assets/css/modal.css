@@ -40,6 +40,8 @@
 }
 
 .modal-body .component,
+.modal-body .likelihood,
+.modal-body .resolution,
 .modal-body .issue,
 .modal-body .description,
 .modal-body .impact,
@@ -109,4 +111,10 @@
 
 .revision-dates p {
     margin: 0;
+}
+
+.initial-info {
+    padding: 20px;
+    font-size: 16px;
+    color: #333;
 }

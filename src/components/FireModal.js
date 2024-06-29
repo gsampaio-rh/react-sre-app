@@ -18,7 +18,7 @@ const FireModal = ({ show, handleClose, roomId }) => {
 
     return (
         <Modal show={show} onHide={handleClose}>
-            <Modal.Header closeButton className="warning">
+            <Modal.Header closeButton style={{ backgroundColor: '#ff4d4d', color: '#fff' }}>
                 <Modal.Title>Alerta de Incêndio: {roomId}</Modal.Title>
             </Modal.Header>
             <Modal.Body>
@@ -44,21 +44,22 @@ const FireModal = ({ show, handleClose, roomId }) => {
                         </div>
                     </>
                 ) : (
-                    <div className="initial-info">
+                    <div className="initial-info" style={{ padding: '20px', fontSize: '16px', color: '#333' }}>
                         <p>Há um incêndio nesta sala. Por favor, evacue imediatamente.</p>
                     </div>
                 )}
             </Modal.Body>
-            <Modal.Footer>
+            <Modal.Footer style={{ justifyContent: 'space-between' }}>
                 <a
                     href="https://www.redhat.com/en/technologies/management/insights"
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={handleLogoClick}
+                    style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}
                 >
-                    <img src="/img/redhat-insights.png" className="logo" alt="Red Hat Insights Logo" />
+                    <img src="/img/redhat-insights.png" className="logo" alt="Red Hat Insights Logo" style={{ width: '150px', marginRight: '10px' }} />
                 </a>
-                <Button variant="secondary" onClick={handleClose}>
+                <Button variant="secondary" onClick={handleClose} style={{ backgroundColor: '#6c757d', borderColor: '#6c757d' }}>
                     Fechar
                 </Button>
             </Modal.Footer>
