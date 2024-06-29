@@ -1,0 +1,115 @@
+/* Room styles */
+.room {
+    position: relative !important;
+    height: 150px !important;
+    width: 200px !important;
+    margin: 10px !important;
+    color: white !important;
+    border: 5px solid black !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    font-size: 14px !important;
+    text-align: center !important;
+}
+
+/* Transparency settings for rooms */
+.sala-roxa {
+    background-color: rgba(142, 68, 173, 0.5) !important;
+}
+
+.sala-azul {
+    background-color: rgba(52, 152, 219, 0.5) !important;
+}
+
+.sala-rosa {
+    background-color: rgba(233, 30, 99, 0.5) !important;
+}
+
+.sala-verde {
+    background-color: rgba(39, 174, 96, 0.5) !important;
+}
+
+.sala-vermelha {
+    background-color: rgba(231, 76, 60, 0.5) !important;
+}
+
+.sala-amarela {
+    background-color: rgba(241, 196, 15, 0.5) !important;
+}
+
+.sala-marrom {
+    background-color: rgba(121, 85, 72, 0.5) !important;
+}
+
+.sala-laranja {
+    background-color: rgba(255, 165, 0, 0.5) !important;
+}
+
+/* Person counter styles */
+.room .person-counter-top,
+.room .person-counter-bottom {
+    position: absolute !important;
+    left: 10px !important;
+    font-size: 15px !important;
+}
+
+.room .person-counter-top {
+    top: 10px !important;
+}
+
+.room .person-counter-bottom {
+    bottom: 10px !important;
+}
+
+.room .button-container {
+    position: absolute !important;
+    right: 10px !important;
+    bottom: 10px !important;
+    display: flex !important;
+    gap: 5px !important;
+}
+
+.room .button-container button {
+    border: none !important;
+    border-radius: 5px !important;
+    padding: 5px 10px !important;
+    font-size: 5px !important;
+    cursor: pointer !important;
+    transition: background-color 0.3s ease !important;
+}
+
+.room .button-container button:hover {
+    background-color: #ccc !important;
+}
+
+.room .button-container .btn-primary {
+    background-color: #007bff !important;
+    color: white !important;
+}
+
+.room .button-container .btn-danger {
+    background-color: #dc3545 !important;
+    color: white !important;
+}
+
+/* Door frame styles */
+.door-frame-bottom,
+.door-frame-top {
+    position: absolute !important;
+    width: 50px !important;
+    height: 10px !important;
+    background-color: #fff !important;
+}
+
+.door-frame-bottom {
+    bottom: -6px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+}
+
+.door-frame-top {
+    top: -6px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+}

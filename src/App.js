@@ -1,5 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import './assets/css/styles.css';  // Import the styles
+import './assets/css/styles.css';
+import './assets/css/floor.css';
+import './assets/css/room.css';
+import './assets/css/exitArea.css';
+import './assets/css/sidebar.css';
+import './assets/css/notification.css';
+import './assets/css/animations.css';
+import './assets/css/modal.css';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Floor from './components/Floor';
