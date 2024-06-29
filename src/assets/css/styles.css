@@ -390,6 +390,7 @@ body {
     font-weight: bold;
 }
 
+.modal-body .component,
 .modal-body .issue,
 .modal-body .description,
 .modal-body .impact,

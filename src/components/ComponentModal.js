@@ -24,14 +24,14 @@ function ComponentModal({ show, handleClose, componentData, problemData }) {
                         <img src="/img/alert.png" className="alert-icon" alt="Alert Icon" />
                     </div>
                 )}
-                <div className="issue">
+                <div className="component">
                     <strong>{componentData.name}</strong>
                     Localização: {componentData.location}<br />
                     Status: {componentData.status}<br />
                     Última revisão: {componentData.last_revision_date}<br />
                     Data de expiração: {componentData.expiration_date}
                 </div>
-                {problemData && (
+                {problemData && !showCveDetails && (
                     <>
                         <div className="issue">
                             <strong>{problemData.issue}</strong>
@@ -48,21 +48,36 @@ function ComponentModal({ show, handleClose, componentData, problemData }) {
                                 ))}
                             </ul>
                         </div>
-                        {showCveDetails && problemData.cveDetails && (
-                            <div className="cve-details">
-                                <strong>CVE Detalhes:</strong><br />
-                                CVSS3 Score: {problemData.cveDetails.cvss3_score}<br />
-                                Descrição: {problemData.cveDetails.description}<br />
-                                Impacto: {problemData.cveDetails.impact}<br />
-                                Reboot Required: {problemData.cveDetails.rules.some(rule => rule.reboot_required) ? 'Yes' : 'No'}<br />
-                            </div>
-                        )}
+                    </>
+                )}
+                {problemData && showCveDetails && problemData.cveDetails && (
+                    <>  
+                        <div className="issue">
+                            <strong>{problemData.cveDetails.synopsis}</strong>
+                            {problemData.cveDetails.description}
+                        </div>
+                        <div className="impact">
+                            <strong>Impacto:</strong> {problemData.cveDetails.impact}
+                        </div>
+                        <div className="suggestions">
+                            <strong>Sugestões:</strong>
+                            <ul>
+                                {problemData.cveDetails.rules.map((rule, index) => (
+                                    <li key={index}>{rule.summary}</li>
+                                ))}
+                            </ul>
+                        </div>
                     </>
                 )}
             </Modal.Body>
             <Modal.Footer>
                 {problemData && (
-                    <a href="https://www.redhat.com/en/technologies/management/insights" target="_blank" rel="noopener noreferrer" onClick={handleLogoClick}>
+                    <a
+                        href="https://www.redhat.com/en/technologies/management/insights"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={handleLogoClick}
+                    >
                         <img src="/img/redhat-insights.png" className="logo" alt="Red Hat Insights Logo" />
                     </a>
                 )}
