@@ -1,70 +1,124 @@
-# Getting Started with Create React App
+# React SRE App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+React SRE App is a sophisticated application designed to provide visual insights and management capabilities for Site Reliability Engineers (SREs). This application integrates data from various sources to display the status of different rooms and areas, highlighting critical issues and enabling SREs to take appropriate actions.
 
-## Available Scripts
+## Table of Contents
 
-In the project directory, you can run:
+- [React SRE App](#react-sre-app)
+  - [Table of Contents](#table-of-contents)
+  - [Getting Started](#getting-started)
+    - [Prerequisites](#prerequisites)
+    - [Installation](#installation)
+    - [Running the Application](#running-the-application)
+  - [Features](#features)
+  - [Usage](#usage)
+  - [Development](#development)
+    - [Folder Structure](#folder-structure)
+    - [Important Files](#important-files)
+    - [Running Tests](#running-tests)
+    - [Build and Deployment](#build-and-deployment)
+  - [Contributing](#contributing)
+  - [License](#license)
 
-### `npm start`
+## Getting Started
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+These instructions will help you set up and run the project on your local machine for development and testing purposes.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Prerequisites
 
-### `npm test`
+Ensure you have the following installed:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Node.js (>=14.x)
+- npm (>=6.x)
 
-### `npm run build`
+### Installation
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. **Clone the repository:**
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+    ```bash
+    git clone https://github.com/gsampaio-rh/react-sre-app
+    cd react-sre-app
+    ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2. **Install dependencies:**
 
-### `npm run eject`
+    ```bash
+    npm install
+    ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Running the Application
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. **Start the development server:**
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+    ```bash
+    npm start
+    ```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+    This will run the app in development mode. Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-## Learn More
+## Features
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- **Visual Insights:** Display the status of different rooms and areas with real-time updates.
+- **Critical Issue Highlighting:** Highlight rooms with critical issues such as fires.
+- **Integration with Red Hat Insights:** Enable or disable insights to get detailed information about potential problems.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Usage
 
-### Code Splitting
+1. **Navigate through the application:**
+   - Use the sidebar to enable or disable Red Hat Insights.
+   - Click on rooms to see more details or highlight issues.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+2. **Check for specific rules:**
+   - The application checks for specific rules (e.g., `abort_command_issued|ABORT_COMMAND_ISSUED`) and displays alerts accordingly.
 
-### Analyzing the Bundle Size
+## Development
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Folder Structure
 
-### Making a Progressive Web App
+- `src/`
+  - `assets/`: Contains CSS, data, and images.
+  - `components/`: Contains React components used in the application.
+  - `contexts/`: Contains context providers for global state management.
+  - `hooks/`: Contains custom React hooks.
+  - `services/`: Contains service functions for data fetching and processing.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Important Files
 
-### Advanced Configuration
+- `App.js`: Main application component.
+- `Floor.js`: Component for displaying the floor layout.
+- `Room.js`: Component for displaying individual rooms.
+- `Sidebar.js`: Component for the sidebar with configuration options.
+- `FireModal.js`: Modal component for displaying fire alerts.
+- `ComponentModal.js`: Modal component for displaying component details.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### Running Tests
 
-### Deployment
+To run tests, use the following command:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+```bash
+npm test
+```
 
-### `npm run build` fails to minify
+### Build and Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+To build the app for production, use the following command:
+
+```bash
+npm run build
+```
+
+This will create an optimized production build in the build folder.
+
+## Contributing
+
+Contributions are welcome! Please follow these steps:
+
+1. Fork the repository.
+2. Create a new branch (git checkout -b feature/your-feature).
+3. Commit your changes (git commit -m 'Add some feature').
+4. Push to the branch (git push origin feature/your-feature).
+5. Open a pull request.
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
