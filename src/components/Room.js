@@ -1,18 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-const Room = ({ id, name, dimensions, peopleCount, incrementCount, decrementCount }) => {
+function Room({ id, name, dimensions, initialPeople, backgroundColor }) {
+    const [peopleCount, setPeopleCount] = useState(initialPeople);
+
+    const changePersonCount = (change) => {
+        setPeopleCount(prevCount => Math.max(0, prevCount + change));
+    };
+
     return (
-        <div className={`col-sm-2 room ${id}`} id={id} data-room-name={name} data-dimensions={dimensions}
-            data-people={peopleCount}>
+        <div className={`col-sm-2 room ${backgroundColor}`} id={id} data-room-name={name} data-dimensions={dimensions} data-people={peopleCount}>
             <div className="door-frame-bottom"></div>
-            {name}<br />{dimensions}<br />
             <div className="person-counter-top">🧑 <span id={`count-${id}`}>{peopleCount}</span> pessoas</div>
+            {name}<br />{dimensions}
             <div className="button-container">
-                <button className="btn btn-primary" onClick={() => incrementCount(id)}></button>
-                <button className="btn btn-danger" onClick={() => decrementCount(id)}></button>
+                <button className="btn btn-primary" onClick={() => changePersonCount(1)}>+</button>
+                <button className="btn btn-danger" onClick={() => changePersonCount(-1)}>-</button>
             </div>
         </div>
     );
-};
+}
 
 export default Room;
