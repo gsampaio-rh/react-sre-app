@@ -45,7 +45,7 @@ function Room({ id, name, dimensions, initialPeople, backgroundColor, doorPositi
                         changePersonCount(1);
                     }}
                 >
-                    +
+                
                 </button>
                 <button
                     className="btn btn-danger"
@@ -54,7 +54,7 @@ function Room({ id, name, dimensions, initialPeople, backgroundColor, doorPositi
                         changePersonCount(-1);
                     }}
                 >
-                    -
+                
                 </button>
             </div>
             <FireModal
