@@ -6,6 +6,11 @@
     position: relative;
 }
 
+.modal-header.info {
+    background: linear-gradient(45deg, #4b79ff, #6aafff);
+    color: white;
+}
+
 .modal-header.warning {
     background: linear-gradient(45deg, #ff4b4b, #ff6a6a);
     color: white;
@@ -72,8 +77,16 @@
     height: 48px;
     animation: flash 1.5s infinite;
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 15px;
+    right: 20px;
+}
+
+.lamp-icon {
+    width: 48px;
+    height: 48px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
 }
 
 .modal-footer {
@@ -121,10 +134,31 @@
 
 .component-details {
     margin-bottom: 15px;
+    padding: 10px;
+    /* background-color: #f9f9f9; */
+    /* border-radius: 10px; */
+    /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
 }
 
-.component-details strong {
-    font-size: 1.2em;
+.component-name {
+    font-size: 1.5em;
     display: block;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.detail-item {
+    display: flex;
+    align-items: center;
     margin-bottom: 10px;
+}
+
+.detail-icon {
+    margin-right: 8px;
+    color: #007bff;
+}
+
+.detail-item span {
+    font-size: 1em;
+    color: #555;
 }

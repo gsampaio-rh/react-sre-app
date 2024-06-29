@@ -15,17 +15,20 @@ const ComponentModal = ({ show, handleClose, componentData, problemData }) => {
         setShowCveDetails(!showCveDetails); // Toggle the CVE details visibility
     };
 
+    const headerClass = problemData ? 'warning' : 'info';
+
     return (
         <Modal show={show} onHide={handleClose}>
-            <Modal.Header closeButton className={problemData ? 'warning' : ''}>
+            <Modal.Header closeButton className={headerClass}>
                 <Modal.Title>Detalhes do Componente</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                {problemData && (
-                    <div className="alert-icon-container">
-                        <img src="/img/alert.png" className="alert-icon" alt="Alert Icon" />
-                    </div>
-                )}
+                <div className="alert-icon-container">
+                    <img src={problemData ? "/img/alert.png" : "/img/lamp.png"}
+                        className={problemData ? "alert-icon" : "lamp-icon"}
+                        alt={problemData ? "Alert Icon" : "Lamp Icon"}
+                    />
+                </div>
                 <ComponentDetails componentData={componentData} />
                 <ProblemDetails
                     problemData={problemData}
