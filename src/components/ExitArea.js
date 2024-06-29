@@ -1,20 +1,35 @@
 import React from 'react';
 
 function ExitArea({ id, position, hasElevator, hasFireExtinguisher, showComponentDetails }) {
-    const handleClick = () => {
+    const handleClick = (event, componentId) => {
+        event.stopPropagation(); // Prevent the click event from bubbling up
         if (showComponentDetails) {
-            showComponentDetails(id);
+            showComponentDetails(componentId);
         }
     };
 
     return (
-        <div className={`col-sm-2 exit-area ${position}`} id={id} onClick={handleClick}>
+        <div className={`col-sm-2 exit-area ${position}`} id={id}>
             {position === 'bottom' ? (
                 <>
                     <div className="row justify-content-md-center">
                         <div className={`hall ${position}`} id={`hall-${position}`}>
-                            {hasElevator && <img src="/img/elevator.png" className="elevator" alt="Elevador" />}
-                            {hasFireExtinguisher && <img src="/img/extinguisher.png" className="fire-extinguisher" alt="Extintor de Incêndio" />}
+                            {hasElevator && (
+                                <img
+                                    src="/img/elevator.png"
+                                    className="elevator"
+                                    alt="Elevador"
+                                    onClick={(e) => handleClick(e, 'elevator')}
+                                />
+                            )}
+                            {hasFireExtinguisher && (
+                                <img
+                                    src="/img/extinguisher.png"
+                                    className="fire-extinguisher"
+                                    alt="Extintor de Incêndio"
+                                    onClick={(e) => handleClick(e, 'fire_extinguisher')}
+                                />
+                            )}
                             <img src="/img/exit-sign.jpg" className="exit-sign" alt="Sinal de Saída" />
                         </div>
                     </div>
@@ -35,8 +50,22 @@ function ExitArea({ id, position, hasElevator, hasFireExtinguisher, showComponen
                     </div>
                     <div className="row justify-content-md-center">
                         <div className={`hall ${position}`} id={`hall-${position}`}>
-                            {hasElevator && <img src="/img/elevator.png" className="elevator" alt="Elevador" />}
-                            {hasFireExtinguisher && <img src="/img/extinguisher.png" className="fire-extinguisher" alt="Extintor de Incêndio" />}
+                            {hasElevator && (
+                                <img
+                                    src="/img/elevator.png"
+                                    className="elevator"
+                                    alt="Elevador"
+                                    onClick={(e) => handleClick(e, 'elevator')}
+                                />
+                            )}
+                            {hasFireExtinguisher && (
+                                <img
+                                    src="/img/extinguisher.png"
+                                    className="fire-extinguisher"
+                                    alt="Extintor de Incêndio"
+                                    onClick={(e) => handleClick(e, 'fire_extinguisher')}
+                                />
+                            )}
                             <img src="/img/exit-sign.jpg" className="exit-sign" alt="Sinal de Saída" />
                         </div>
                     </div>
