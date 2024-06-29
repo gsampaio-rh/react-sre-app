@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function Room({ id, name, dimensions, initialPeople, backgroundColor }) {
+function Room({ id, name, dimensions, initialPeople, backgroundColor, doorPosition }) {
     const [peopleCount, setPeopleCount] = useState(initialPeople);
 
     const changePersonCount = (change) => {
@@ -9,7 +9,7 @@ function Room({ id, name, dimensions, initialPeople, backgroundColor }) {
 
     return (
         <div className={`col-sm-2 room ${backgroundColor}`} id={id} data-room-name={name} data-dimensions={dimensions} data-people={peopleCount}>
-            <div className="door-frame-bottom"></div>
+            {doorPosition === 'top' ? <div className="door-frame-top"></div> : <div className="door-frame-bottom"></div>}
             <div className="person-counter-top">🧑 <span id={`count-${id}`}>{peopleCount}</span> pessoas</div>
             {name}<br />{dimensions}
             <div className="button-container">
