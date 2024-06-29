@@ -1,12 +1,15 @@
 import React from 'react';
 
-function ExitArea({ id, position, hasElevator, hasFireExtinguisher, showComponentDetails }) {
+function ExitArea({ id, position, hasElevator, hasFireExtinguisher, showComponentDetails, affectedEquipment }) {
     const handleClick = (event, componentId) => {
         event.stopPropagation(); // Prevent the click event from bubbling up
         if (showComponentDetails) {
             showComponentDetails(componentId);
         }
     };
+
+    const isElevatorAffected = affectedEquipment.includes('elevator');
+    const isExtinguisherAffected = affectedEquipment.includes('fire_extinguisher');
 
     return (
         <div className={`col-sm-2 exit-area ${position}`} id={id}>
@@ -17,7 +20,7 @@ function ExitArea({ id, position, hasElevator, hasFireExtinguisher, showComponen
                             {hasElevator && (
                                 <img
                                     src="/img/elevator.png"
-                                    className="elevator"
+                                    className={`elevator ${isElevatorAffected ? 'flash' : ''}`}
                                     alt="Elevador"
                                     onClick={(e) => handleClick(e, 'elevator')}
                                 />
@@ -25,7 +28,7 @@ function ExitArea({ id, position, hasElevator, hasFireExtinguisher, showComponen
                             {hasFireExtinguisher && (
                                 <img
                                     src="/img/extinguisher.png"
-                                    className="fire-extinguisher"
+                                    className={`fire-extinguisher ${isExtinguisherAffected ? 'flash' : ''}`}
                                     alt="Extintor de Incêndio"
                                     onClick={(e) => handleClick(e, 'fire_extinguisher')}
                                 />
@@ -53,7 +56,7 @@ function ExitArea({ id, position, hasElevator, hasFireExtinguisher, showComponen
                             {hasElevator && (
                                 <img
                                     src="/img/elevator.png"
-                                    className="elevator"
+                                    className={`elevator ${isElevatorAffected ? 'flash' : ''}`}
                                     alt="Elevador"
                                     onClick={(e) => handleClick(e, 'elevator')}
                                 />
@@ -61,7 +64,7 @@ function ExitArea({ id, position, hasElevator, hasFireExtinguisher, showComponen
                             {hasFireExtinguisher && (
                                 <img
                                     src="/img/extinguisher.png"
-                                    className="fire-extinguisher"
+                                    className={`fire-extinguisher ${isExtinguisherAffected ? 'flash' : ''}`}
                                     alt="Extintor de Incêndio"
                                     onClick={(e) => handleClick(e, 'fire_extinguisher')}
                                 />

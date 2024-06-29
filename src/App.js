@@ -11,9 +11,10 @@ function App() {
   const [showModal, setShowModal] = useState(false);
   const [selectedComponent, setSelectedComponent] = useState(null);
   const [selectedProblem, setSelectedProblem] = useState(null);
+  const [affectedEquipment, setAffectedEquipment] = useState([]);
 
   useEffect(() => {
-    const affectedEquipment = [];
+    const affectedEquipmentSet = new Set();
     const matchingCVEs = [];
 
     for (const componentId in infraData.equipment) {
@@ -28,13 +29,15 @@ function App() {
         );
 
         if (matchingCVE) {
-          affectedEquipment.push(component.name);
+          affectedEquipmentSet.add(componentId);
           matchingCVEs.push(matchingCVE.attributes.synopsis);
         }
       });
     }
 
-    console.log('Affected Equipment:', affectedEquipment);
+    setAffectedEquipment(Array.from(affectedEquipmentSet));
+
+    console.log('Affected Equipment:', Array.from(affectedEquipmentSet));
     console.log('Matching CVEs:', matchingCVEs);
   }, []);
 
@@ -78,7 +81,7 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-      <Floor data={infraData} showComponentDetails={showComponentDetails} />
+      <Floor data={infraData} affectedEquipment={affectedEquipment} showComponentDetails={showComponentDetails} />
       <Footer />
       <ComponentModal
         show={showModal}
