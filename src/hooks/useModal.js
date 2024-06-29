@@ -1,12 +1,13 @@
-// hooks/useModal.js
 import { useState } from 'react';
+import { useInsightsContext } from '../contexts/InsightsContext';
 import infraData from '../assets/data/infra_data.json';
 import cveData from '../assets/data/active_cve_data.json';
 
-export const useModal = (isInsightsEnabled) => {
+export const useModal = () => {
     const [showModal, setShowModal] = useState(false);
     const [selectedComponent, setSelectedComponent] = useState(null);
     const [selectedProblem, setSelectedProblem] = useState(null);
+    const { isInsightsEnabled } = useInsightsContext();
 
     const handleClose = () => setShowModal(false);
 
