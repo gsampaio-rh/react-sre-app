@@ -11,6 +11,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Floor from './components/Floor';
 import ComponentModal from './components/ComponentModal';
+import Sidebar from './components/Sidebar';  // Import the Sidebar component
 import infraData from './assets/data/infra_data.json';
 import cveData from './assets/data/active_cve_data.json';
 
@@ -19,6 +20,7 @@ function App() {
   const [selectedComponent, setSelectedComponent] = useState(null);
   const [selectedProblem, setSelectedProblem] = useState(null);
   const [affectedEquipment, setAffectedEquipment] = useState([]);
+  const [isSidebarVisible, setIsSidebarVisible] = useState(false);
 
   useEffect(() => {
     const affectedEquipmentSet = new Set();
@@ -81,13 +83,17 @@ function App() {
     setShowModal(true);
   };
 
-  // Print the data when the page loads
-  console.log(infraData);
-  console.log(cveData);
+  const handleMenuClick = (section) => {
+    if (section === 'config') {
+      setIsSidebarVisible(true);
+    } else {
+      setIsSidebarVisible(false);
+    }
+  };
 
   return (
     <div className="App">
-      <Navbar />
+      <Navbar handleMenuClick={handleMenuClick} />
       <Floor data={infraData} affectedEquipment={affectedEquipment} showComponentDetails={showComponentDetails} />
       <Footer />
       <ComponentModal
@@ -96,6 +102,7 @@ function App() {
         componentData={selectedComponent}
         problemData={selectedProblem}
       />
+      <Sidebar isVisible={isSidebarVisible} handleClose={() => setIsSidebarVisible(false)} />
     </div>
   );
 }

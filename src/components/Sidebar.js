@@ -1,15 +1,18 @@
 import React from 'react';
 
-const Sidebar = () => {
+function Sidebar({ isVisible, handleClose }) {
     return (
-        <div id="sidebar" className="sidebar">
+        <div className={`sidebar ${isVisible ? 'visible' : ''}`}>
             <div className="sidebar-header">
-                <h2>Notifications</h2>
-                <button id="close-sidebar">×</button>
+                <h3>Config</h3>
+                <button className="close-btn" onClick={handleClose}>&times;</button>
             </div>
-            <ul id="notifications-list" className="sidebar-content"></ul>
+            <div className="sidebar-content">
+                {/* Add your sidebar content here */}
+                <p>Here you can add your configuration settings.</p>
+            </div>
         </div>
     );
-};
+}
 
 export default Sidebar;
