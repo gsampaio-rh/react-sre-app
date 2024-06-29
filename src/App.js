@@ -10,7 +10,7 @@ import './assets/css/modal.css';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Floor from './components/Floor';
-import ComponentModal from './components/ComponentModal';
+import ComponentModalWrapper from './components/ComponentModalWrapper';
 import Sidebar from './components/Sidebar';
 import { useInsights } from './hooks/useInsights';
 import { useModal } from './hooks/useModal';
@@ -44,7 +44,7 @@ function App() {
         fireLocation={fireLocation}
       />
       <Footer />
-      <ComponentModal
+      <ComponentModalWrapper
         show={showModal}
         handleClose={handleClose}
         componentData={selectedComponent}
