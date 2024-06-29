@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Modal, Button } from 'react-bootstrap';
 import { useInsightsContext } from '../contexts/InsightsContext';
 import ProblemDetails from './ProblemDetails';
+import ComponentDetails from './ComponentDetails';
 
 const ComponentModal = ({ show, handleClose, componentData, problemData }) => {
     const [showCveDetails, setShowCveDetails] = useState(false);
@@ -25,13 +26,7 @@ const ComponentModal = ({ show, handleClose, componentData, problemData }) => {
                         <img src="/img/alert.png" className="alert-icon" alt="Alert Icon" />
                     </div>
                 )}
-                <div className="component">
-                    <strong>{componentData.name}</strong>
-                    Localização: {componentData.location}<br />
-                    Status: {componentData.status}<br />
-                    Última revisão: {componentData.last_revision_date}<br />
-                    Data de expiração: {componentData.expiration_date}
-                </div>
+                <ComponentDetails componentData={componentData} />
                 <ProblemDetails
                     problemData={problemData}
                     showCveDetails={showCveDetails}
