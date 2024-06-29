@@ -15,11 +15,13 @@ import Sidebar from './components/Sidebar';
 import { useInsights } from './hooks/useInsights';
 import { useModal } from './hooks/useModal';
 import { useSidebar } from './hooks/useSidebar';
+import { useInsightsContext } from './contexts/InsightsContext';
 import checkSpecificRule from './services/checkRule';
 import floorData from './assets/data/floorData.json';
 
 function App() {
-  const { isSidebarVisible, isInsightsEnabled, handleMenuClick, toggleInsights, closeSidebar } = useSidebar();
+  const { isSidebarVisible, handleMenuClick, closeSidebar } = useSidebar();
+  const { isInsightsEnabled } = useInsightsContext();
   const affectedEquipment = useInsights(isInsightsEnabled);
   const { showModal, selectedComponent, selectedProblem, handleClose, showComponentDetails } = useModal(isInsightsEnabled);
 
@@ -51,8 +53,6 @@ function App() {
       <Sidebar
         isVisible={isSidebarVisible}
         handleClose={closeSidebar}
-        isInsightsEnabled={isInsightsEnabled}
-        toggleInsights={toggleInsights}
       />
     </div>
   );

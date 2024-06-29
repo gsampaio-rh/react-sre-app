@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { Modal, Button } from 'react-bootstrap';
+import { useInsightsContext } from '../contexts/InsightsContext';
 
 function ComponentModal({ show, handleClose, componentData, problemData }) {
     const [showCveDetails, setShowCveDetails] = useState(false);
+    const { isInsightsEnabled } = useInsightsContext();
 
     if (!componentData) {
         return null;
@@ -51,7 +53,7 @@ function ComponentModal({ show, handleClose, componentData, problemData }) {
                     </>
                 )}
                 {problemData && showCveDetails && problemData.cveDetails && (
-                    <>  
+                    <>
                         <div className="issue">
                             <strong>{problemData.cveDetails.synopsis}</strong>
                             {problemData.cveDetails.description}
@@ -71,7 +73,7 @@ function ComponentModal({ show, handleClose, componentData, problemData }) {
                 )}
             </Modal.Body>
             <Modal.Footer>
-                {problemData && (
+                {isInsightsEnabled && (
                     <a
                         href="https://www.redhat.com/en/technologies/management/insights"
                         target="_blank"

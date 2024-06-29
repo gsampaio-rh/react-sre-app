@@ -1,6 +1,9 @@
 import React from 'react';
+import { useInsightsContext } from '../contexts/InsightsContext';
 
-function Sidebar({ isVisible, handleClose, isInsightsEnabled, toggleInsights }) {
+function Sidebar({ isVisible, handleClose }) {
+    const { isInsightsEnabled, toggleInsights } = useInsightsContext();
+
     return (
         <div className={`sidebar ${isVisible ? 'visible' : ''}`}>
             <div className="sidebar-header">

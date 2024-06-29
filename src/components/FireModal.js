@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { Modal, Button } from 'react-bootstrap';
 import ruleData from '../assets/data/rule.json';
+import { useInsightsContext } from '../contexts/InsightsContext';
 
 const FireModal = ({ show, handleClose, roomId }) => {
     const [showDetailedInfo, setShowDetailedInfo] = useState(false);
+    const { isInsightsEnabled } = useInsightsContext();
     const ruleId = "abort_command_issued|ABORT_COMMAND_ISSUED";
     const rule = ruleData.data.find(rule => rule.rule_id === ruleId);
 
@@ -18,7 +20,7 @@ const FireModal = ({ show, handleClose, roomId }) => {
 
     return (
         <Modal show={show} onHide={handleClose}>
-            <Modal.Header closeButton style={{ backgroundColor: '#ff4d4d', color: '#fff' }}>
+            <Modal.Header closeButton className="warning">
                 <Modal.Title>Alerta de Incêndio: {roomId}</Modal.Title>
             </Modal.Header>
             <Modal.Body>
@@ -50,15 +52,17 @@ const FireModal = ({ show, handleClose, roomId }) => {
                 )}
             </Modal.Body>
             <Modal.Footer style={{ justifyContent: 'space-between' }}>
-                <a
-                    href="https://www.redhat.com/en/technologies/management/insights"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={handleLogoClick}
-                    style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}
-                >
-                    <img src="/img/redhat-insights.png" className="logo" alt="Red Hat Insights Logo" style={{ width: '150px', marginRight: '10px' }} />
-                </a>
+                {isInsightsEnabled && (
+                    <a
+                        href="https://www.redhat.com/en/technologies/management/insights"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={handleLogoClick}
+                        style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}
+                    >
+                        <img src="/img/redhat-insights.png" className="logo" alt="Red Hat Insights Logo" style={{ width: '150px', marginRight: '10px' }} />
+                    </a>
+                )}
                 <Button variant="secondary" onClick={handleClose} style={{ backgroundColor: '#6c757d', borderColor: '#6c757d' }}>
                     Fechar
                 </Button>

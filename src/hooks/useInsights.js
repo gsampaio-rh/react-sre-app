@@ -1,4 +1,3 @@
-// hooks/useInsights.js
 import { useState, useEffect } from 'react';
 import infraData from '../assets/data/infra_data.json';
 import cveData from '../assets/data/active_cve_data.json';
