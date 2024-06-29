@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './assets/css/styles.css';
 import './assets/css/floor.css';
 import './assets/css/room.css';
@@ -15,17 +15,28 @@ import Sidebar from './components/Sidebar';
 import { useInsights } from './hooks/useInsights';
 import { useModal } from './hooks/useModal';
 import { useSidebar } from './hooks/useSidebar';
-import infraData from './assets/data/infra_data.json';
+import floorData from './assets/data/floorData.json'; // Import the JSON data
 
 function App() {
-  const { showModal, selectedComponent, selectedProblem, handleClose, showComponentDetails } = useModal(true);
   const { isSidebarVisible, isInsightsEnabled, handleMenuClick, toggleInsights, closeSidebar } = useSidebar();
   const affectedEquipment = useInsights(isInsightsEnabled);
+  const { showModal, selectedComponent, selectedProblem, handleClose, showComponentDetails } = useModal(isInsightsEnabled);
+
+  const [fireLocation, setFireLocation] = useState(null);
+
+  const handleAddFire = (location) => {
+    setFireLocation(location);
+  };
 
   return (
     <div className="App">
       <Navbar handleMenuClick={handleMenuClick} />
-      <Floor data={infraData} affectedEquipment={affectedEquipment} showComponentDetails={showComponentDetails} />
+      <Floor
+        data={floorData}
+        affectedEquipment={affectedEquipment}
+        showComponentDetails={showComponentDetails}
+        fireLocation={fireLocation}
+      />
       <Footer />
       <ComponentModal
         show={showModal}
@@ -39,6 +50,7 @@ function App() {
         isInsightsEnabled={isInsightsEnabled}
         toggleInsights={toggleInsights}
       />
+      <button onClick={() => handleAddFire('Sala Vermelha')}>Add Fire to Sala Vermelha</button>
     </div>
   );
 }

@@ -1,0 +1,126 @@
+{
+    "cves_by_severity": {
+        "0to3.9": {
+            "count": 0,
+            "known_exploit_count": 0,
+            "percentage": 0.0
+        },
+        "4to7.9": {
+            "count": 3,
+            "known_exploit_count": 0,
+            "percentage": 100.0
+        },
+        "8to10": {
+            "count": 0,
+            "known_exploit_count": 0,
+            "percentage": 0.0
+        }
+    },
+    "cves_total": 3,
+    "meta": {
+        "permissions": [
+            "remediations:remediation:write",
+            "inventory:hosts:write",
+            "inventory:groups:write",
+            "inventory:groups:read",
+            "inventory:hosts:read",
+            "remediations:*:write",
+            "remediations:*:read",
+            "vulnerability:*:*",
+            "remediations:remediation:read"
+        ]
+    },
+    "recent_cves": {
+        "last30days": 0,
+        "last7days": 0,
+        "last90days": 0
+    },
+    "rules_by_severity": {
+        "1": {
+            "rule_count": 0,
+            "systems_affected": 0
+        },
+        "2": {
+            "rule_count": 0,
+            "systems_affected": 0
+        },
+        "3": {
+            "rule_count": 3,
+            "systems_affected": 1
+        },
+        "4": {
+            "rule_count": 0,
+            "systems_affected": 0
+        }
+    },
+    "rules_total": 3,
+    "system_count": 2,
+    "system_count_per_type": {
+        "edge": 0,
+        "rpmdnf": 2
+    },
+    "top_cves": [
+        {
+            "cvss2_score": "None",
+            "cvss3_score": "7.800",
+            "description": "A use-after-free vulnerability was found in the Netfilter subsystem of the Linux kernel when processing batch requests to update nf_tables configuration. This vulnerability can be abused to perform arbitrary reads and writes in kernel memory. A local user (with CAP_NET_ADMIN capability) could use this flaw to crash the system or potentially escalate their privileges on the system.",
+            "known_exploit": false,
+            "rule_presence": true,
+            "security_rule": true,
+            "synopsis": "CVE-2023-32233",
+            "systems_affected": 1
+        },
+        {
+            "cvss2_score": "None",
+            "cvss3_score": "7.000",
+            "description": "A flaw was found in the Linux kernel, where unauthorized access to the execution of the setuid file with capabilities was found in the Linux kernel\u2019s OverlayFS subsystem in how a user copies a capable file from a nosuid mount into another mount. This uid mapping bug allows a local user to escalate their privileges on the system.",
+            "known_exploit": false,
+            "rule_presence": true,
+            "security_rule": true,
+            "synopsis": "CVE-2023-0386",
+            "systems_affected": 1
+        },
+        {
+            "cvss2_score": "None",
+            "cvss3_score": "5.600",
+            "description": "An industry-wide issue was found in the way many modern microprocessor designs have implemented speculative execution of Load & Store instructions (a commonly used performance optimization). It relies on the presence of a precisely-defined instruction sequence in the privileged code as well as the fact that memory read from address to which a recent memory write has occurred may see an older value and subsequently cause an update into the microprocessor's data cache even for speculatively executed instructions that never actually commit (retire). As a result, an unprivileged attacker could use this flaw to read privileged memory by conducting targeted cache side-channel attacks.",
+            "known_exploit": false,
+            "rule_presence": true,
+            "security_rule": true,
+            "synopsis": "CVE-2018-3639",
+            "systems_affected": 1
+        }
+    ],
+    "top_rules": [
+        {
+            "associated_cves": [
+                "CVE-2018-3639"
+            ],
+            "description": "Vulnerable microcode is installed.\n",
+            "name": "\"SSBD\": CPU side-channel with outdated microcode",
+            "rule_id": "CVE_2018_3639_cpu_kernel|CVE_2018_3639_CPU_BAD_MICROCODE_2",
+            "severity": 3,
+            "systems_affected": 1
+        },
+        {
+            "associated_cves": [
+                "CVE-2023-32233"
+            ],
+            "description": "Vulnerable kernel is running on this system.\n",
+            "name": "Vulnerability of Netfilter nf_tables: System crash or privileges escalation",
+            "rule_id": "CVE_2023_32233_netfilter_kernel|CVE_2023_32233_NETFILTER_KERNEL",
+            "severity": 3,
+            "systems_affected": 1
+        },
+        {
+            "associated_cves": [
+                "CVE-2023-0386"
+            ],
+            "description": "Vulnerable kernel is running on this system.\n",
+            "name": "Vulnerability of OverlayFS: Privilege escalation",
+            "rule_id": "CVE_2023_0386_overlay_kernel|CVE_2023_0386_OVERLAY_KERNEL",
+            "severity": 3,
+            "systems_affected": 1
+        }
+    ]
+}

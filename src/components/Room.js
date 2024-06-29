@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function Room({ id, name, dimensions, initialPeople, backgroundColor, doorPosition, showComponentDetails }) {
+function Room({ id, name, dimensions, initialPeople, backgroundColor, doorPosition, showComponentDetails, isAffected, hasFire }) {
     const [peopleCount, setPeopleCount] = useState(initialPeople);
 
     const changePersonCount = (change) => {
@@ -19,6 +19,14 @@ function Room({ id, name, dimensions, initialPeople, backgroundColor, doorPositi
             {doorPosition === 'top' ? <div className="door-frame-top"></div> : <div className="door-frame-bottom"></div>}
             <div className="person-counter-top">🧑 <span id={`count-${id}`}>{peopleCount}</span> pessoas</div>
             {name}<br />{dimensions}
+            {/* {isAffected && <div className="affected">Affected</div>} */}
+            {hasFire && (
+                <img
+                    src="/img/fire-icon.png"
+                    className="fire-icon"
+                    alt="Fire"
+                />
+            )}
             <div className="button-container">
                 <button
                     className="btn btn-primary"

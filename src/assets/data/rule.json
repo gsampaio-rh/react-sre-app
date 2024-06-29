@@ -1,0 +1,433 @@
+{
+    "meta": {
+        "count": 1769
+    },
+    "links": {
+        "first": "/api/insights/v1/rule/?limit=10&offset=0",
+        "next": "/api/insights/v1/rule/?limit=10&offset=10",
+        "previous": "/api/insights/v1/rule/?limit=10&offset=0",
+        "last": "/api/insights/v1/rule/?limit=10&offset=1759"
+    },
+    "data": [
+        {
+            "rule_id": "aap_eol|AAP_EOL_ERROR",
+            "created_at": "2024-06-20T08:33:09.858024Z",
+            "updated_at": "2024-06-29T08:33:05.350935Z",
+            "description": "Red Hat has discontinued technical support services as well as software maintenance services for the End-Of-Life Ansible Automation Platform",
+            "active": true,
+            "category": {
+                "id": 1,
+                "name": "Availability"
+            },
+            "impact": {
+                "name": "Unsupported Software",
+                "impact": 3
+            },
+            "likelihood": 4,
+            "node_id": "",
+            "tags": "ansible incident",
+            "playbook_count": 0,
+            "reboot_required": false,
+            "publish_date": "2021-05-19T03:03:00Z",
+            "summary": "This Ansible Automation Platform has exceeded its End-of-Life. Red Hat has discontinued technical support services as well as software maintenance services for it.\n",
+            "generic": "This Ansible Automation Platform has exceeded its End-of-Life. Red Hat has discontinued technical support services as well as software maintenance services for it.\n",
+            "reason": "The following Red Hat product{{?Object.keys(pydata.product).length>1}}s{{?}}\ninstalled on this host {{?Object.keys(pydata.product).length>1}}have{{??}}has{{?}} exceeded the End-Of-Life(EOL). As per the related life cycle policy, Red Hat has discontinued technical support services as well as software maintenance services for {{?Object.keys(pydata.product).length>1}}them{{??}}it{{?}}.\n\n{{ for (var idx in pydata.product) { }}\n* The **{{=pydata.product[idx]['name']}} {{=pydata.product[idx]['version']}}** exceeded the **{{=pydata.product[idx]['phase']}}** phase (``{{=pydata.product[idx]['eol']}}``) for ``{{=pydata.product[idx]['days']}}`` day{{?pydata.product[idx]['days']>1}}s{{?}}\n\n  See [{{=pydata.product[idx]['name']}} Life Cycle Policy]({{=pydata.brief[pydata.product[idx]['name']]}})\n{{ } }}\n",
+            "more_info": "For more information regarding Red Hat product life cycles, refer to:\n- [Life Cycle and Update Policies](https://access.redhat.com/support/policy/update_policies).\n- [Product Life Cycles](https://access.redhat.com/product-life-cycles).\n{{? \"upgrade_satellite_to\" in pydata}}\nFor Redis on Satellite, refer to:\n- [Redis 6 not installed by default while installing Red Hat Satellite 6](https://access.redhat.com/solutions/6978060.)\n{{?}}\n",
+            "impacted_systems_count": 0,
+            "reports_shown": true,
+            "rule_status": "enabled",
+            "resolution_set": [
+                {
+                    "system_type": 105,
+                    "resolution": "Red Hat recommends that you upgrade the following product{{?Object.keys(pydata.product).length>1}}s{{?}} to the current supported version.\n{{? \"upgrade_satellite_to\" in pydata}}\nKindly upgrade your satellite to {{=pydata.upgrade_satellite_to}} in order to remediate this issue.\n{{??}}\n{{ for (var idx in pydata.brief) { }}\n* {{=idx}}\n\n  Check the [{{=idx}} Life Cycle Policy]({{=pydata.brief[idx]}}) for details.\n{{ } }}\n{{?}}\n\n\nAfter applying the remediation, refresh the results of Advisor analysis by running the `insights-client` command on the system. \n~~~ \n# insights-client \n~~~ \n",
+                    "resolution_risk": {
+                        "name": "Upgrade Product",
+                        "risk": 3
+                    },
+                    "has_playbook": false
+                }
+            ],
+            "total_risk": 3,
+            "hosts_acked_count": 0,
+            "rating": 0
+        },
+        {
+            "rule_id": "aap_eol|AAP_EOL_INFO",
+            "created_at": "2024-06-20T08:33:09.897839Z",
+            "updated_at": "2024-06-29T08:33:05.369018Z",
+            "description": "Red Hat will discontinue technical support services as well as software maintenance services for End-Of-Life Ansible Automation Platform in less than 30 days",
+            "active": true,
+            "category": {
+                "id": 1,
+                "name": "Availability"
+            },
+            "impact": {
+                "name": "Unsupported Software",
+                "impact": 3
+            },
+            "likelihood": 2,
+            "node_id": "",
+            "tags": "ansible",
+            "playbook_count": 0,
+            "reboot_required": false,
+            "publish_date": "2021-05-19T03:03:00Z",
+            "summary": "This is a reminder that this Ansible Automation Platform will exceed End-of-Life within 30 days. After that, Red Hat will discontinue technical support services as well as software maintenance for it.\n",
+            "generic": "This is a reminder that this Ansible Automation Platform will exceed End-of-Life within 30 days. After that, Red Hat will discontinue technical support services as well as software maintenance for it.\n",
+            "reason": "The following Red Hat product{{?Object.keys(pydata.product).length>1}}s{{?}} installed on this host will exceed its End-Of-Life (EOL). As per the related life cycle policy, Red Hat will discontinue technical support services as well as software maintenance services for {{?Object.keys(pydata.product).length>1}}them{{??}}it{{?}}.\n\n{{ for (var idx in pydata.product) { }}\n* The **{{=pydata.product[idx]['name']}} {{=pydata.product[idx].version}}** will exceed the **{{=pydata.product[idx]['phase']}}** phase on ``{{=pydata.product[idx]['eol']}}`` in ``{{=pydata.product[idx]['days']}}`` days\n\n  See [{{=pydata.product[idx]['name']}} Life Cycle Policy]({{=pydata.brief[pydata.product[idx]['name']]}})\n{{ } }}\n",
+            "more_info": "For more information regarding Red Hat product life cycles, refer to:\n- [Life Cycle and Update Policies](https://access.redhat.com/support/policy/update_policies).\n- [Product Life Cycles](https://access.redhat.com/product-life-cycles).\n{{? \"upgrade_satellite_to\" in pydata}}\nFor Redis on Satellite, refer to:\n- [Redis 6 not installed by default while installing Red Hat Satellite 6](https://access.redhat.com/solutions/6978060.)\n{{?}}\n",
+            "impacted_systems_count": 0,
+            "reports_shown": true,
+            "rule_status": "enabled",
+            "resolution_set": [
+                {
+                    "system_type": 105,
+                    "resolution": "Red Hat recommends that you upgrade the following product{{?Object.keys(pydata.product).length>1}}s{{?}} to the current supported version.\n{{? \"upgrade_satellite_to\" in pydata}}\nKindly upgrade your satellite to {{=pydata.upgrade_satellite_to}} in order to remediate this issue.\n{{??}}\n{{ for (var idx in pydata.brief) { }}\n* {{=idx}}\n\n  Check the [{{=idx}} Life Cycle Policy]({{=pydata.brief[idx]}}) for details.\n{{ } }}\n{{?}}\n\n\nAfter applying the remediation, refresh the results of Advisor analysis by running the `insights-client` command on the system. \n~~~ \n# insights-client \n~~~ \n",
+                    "resolution_risk": {
+                        "name": "Upgrade Product",
+                        "risk": 3
+                    },
+                    "has_playbook": false
+                }
+            ],
+            "total_risk": 2,
+            "hosts_acked_count": 0,
+            "rating": 0
+        },
+        {
+            "rule_id": "aap_eol|AAP_EOL_WARN",
+            "created_at": "2024-06-20T08:33:09.919820Z",
+            "updated_at": "2024-06-29T08:33:05.396825Z",
+            "description": "Red Hat will discontinue technical support services as well as software maintenance services for End-Of-Life Ansible Automation Platform in less than 7 days",
+            "active": true,
+            "category": {
+                "id": 1,
+                "name": "Availability"
+            },
+            "impact": {
+                "name": "Unsupported Software",
+                "impact": 3
+            },
+            "likelihood": 3,
+            "node_id": "",
+            "tags": "ansible",
+            "playbook_count": 0,
+            "reboot_required": false,
+            "publish_date": "2021-05-19T03:03:00Z",
+            "summary": "This is a reminder that this Ansible Automation Platform will exceed End-of-Life within 7 days. After that, Red Hat will discontinue technical support services as well as software maintenance for it.\n",
+            "generic": "This is a reminder that this Ansible Automation Platform will exceed End-of-Life within 7 days. After that, Red Hat will discontinue technical support services as well as software maintenance for it.\n",
+            "reason": "The following Red Hat product{{?Object.keys(pydata.product).length>1}}s{{?}} installed on this host will exceed its End-Of-Life (EOL). As per the related life cycle policy, Red Hat will discontinue technical support services as well as software maintenance services for {{?Object.keys(pydata.product).length>1}}them{{??}}it{{?}}.\n\n{{ for (var idx in pydata.product) { }}\n* The **{{=pydata.product[idx]['name']}} {{=pydata.product[idx]['version']}}** will exceed the **{{=pydata.product[idx]['phase']}}** phase on ``{{=pydata.product[idx]['eol']}}`` in ``{{=pydata.product[idx]['days']}}`` days\n\n  See [{{=pydata.product[idx]['name']}} Life Cycle Policy]({{=pydata.brief[pydata.product[idx]['name']]}})\n{{ } }}\n",
+            "more_info": "For more information regarding Red Hat product life cycles, refer to:\n- [Life Cycle and Update Policies](https://access.redhat.com/support/policy/update_policies).\n- [Product Life Cycles](https://access.redhat.com/product-life-cycles).\n{{? \"upgrade_satellite_to\" in pydata}}\nFor Redis on Satellite, refer to:\n- [Redis 6 not installed by default while installing Red Hat Satellite 6](https://access.redhat.com/solutions/6978060.)\n{{?}}\n",
+            "impacted_systems_count": 0,
+            "reports_shown": true,
+            "rule_status": "enabled",
+            "resolution_set": [
+                {
+                    "system_type": 105,
+                    "resolution": "Red Hat recommends that you upgrade the following product{{?Object.keys(pydata.product).length>1}}s{{?}} to the current supported version.\n{{? \"upgrade_satellite_to\" in pydata}}\nKindly upgrade your satellite to {{=pydata.upgrade_satellite_to}} in order to remediate this issue.\n{{??}}\n{{ for (var idx in pydata.brief) { }}\n* {{=idx}}\n\n  Check the [{{=idx}} Life Cycle Policy]({{=pydata.brief[idx]}}) for details.\n{{ } }}\n{{?}}\n\n\nAfter applying the remediation, refresh the results of Advisor analysis by running the `insights-client` command on the system. \n~~~ \n# insights-client \n~~~ \n",
+                    "resolution_risk": {
+                        "name": "Upgrade Product",
+                        "risk": 3
+                    },
+                    "has_playbook": false
+                }
+            ],
+            "total_risk": 3,
+            "hosts_acked_count": 0,
+            "rating": 0
+        },
+        {
+            "rule_id": "aap_subscription_expiration|AAP_SUBSCRIPTION_EXPIRED_ERROR",
+            "created_at": "2024-03-28T14:32:50.435734Z",
+            "updated_at": "2024-06-24T20:33:22.614904Z",
+            "description": "Some functionalities like running job templates and inventory sync cannot be used because the Ansible Automation Platform subscription has expired",
+            "active": true,
+            "category": {
+                "id": 1,
+                "name": "Availability"
+            },
+            "impact": {
+                "name": "Service Inoperation",
+                "impact": 3
+            },
+            "likelihood": 4,
+            "node_id": "6988859",
+            "tags": "aap incident license sbr_ansible",
+            "playbook_count": 0,
+            "reboot_required": false,
+            "publish_date": "2024-03-31T05:57:00Z",
+            "summary": "The Ansible Automation Platform subscription has expired. Some functionalities \nlike running job templates or workflow and dynamic inventory sync cannot be used. \nHowever, for non-trial subscription, there is a 30-day grace period included \nwith your subscription before those functionalities are affected.\n",
+            "generic": "The Ansible Automation Platform subscription has expired. Some functionalities \nlike running job templates or workflow and dynamic inventory sync cannot be used. \nHowever, for non-trial subscription, there is a 30-day grace period included \nwith your subscription before those functionalities are affected.\n",
+            "reason": "This host is running Ansible Automation Platform automation controller **{{=pydata.version}}**.\n{{? pydata.expire_info[\"trial\"]}}\nThe trial subscription applied on the Ansible Automation Platform has expired{{? pydata.expire_info[\"abs_time_remaining\"] > 0}} **{{=pydata.expire_info[\"abs_time_remaining\"]}}** day{{? pydata.expire_info[\"abs_time_remaining\"] > 1}}s{{?}}{{?}}. \nThe following functionalities cannot be used now:\n{{??}}\nThe subscription applied on the Ansible Automation Platform has expired. There \nis a 30-day grace period included with your subscription before those functionalities \nare affected.{{? pydata.expire_info[\"grace_period_remaining\"] > 0}} Now, there are {{=pydata.expire_info[\"grace_period_remaining\"]}} day{{? pydata.expire_info[\"grace_period_remaining\"] > 1}}s{{?}} \nleft for the grace period. After the grace period, the following functionalities cannot be used:{{??}} \nHowever, the grace period has passed{{? pydata.expire_info[\"abs_grace_period_remaining\"] > 0}} **{{=pydata.expire_info[\"abs_grace_period_remaining\"]}}** day{{? pydata.expire_info[\"abs_grace_period_remaining\"] > 1}}s{{?}}{{?}}. The following functionalities cannot be used now:{{?}}\n{{?}}\n* Dynamic Inventory Sync\n* Manual Host Addition\n* Run Job Template\n* Run Workflow\n* Upgrade to newer version\n",
+            "more_info": "",
+            "impacted_systems_count": 0,
+            "reports_shown": true,
+            "rule_status": "enabled",
+            "resolution_set": [
+                {
+                    "system_type": 105,
+                    "resolution": "Red Hat recommends that you import a new valid subscription according to the document below.\n\n{{? pydata.version == \"2.3\"}}\n* [Activating Red Hat Ansible Automation Platform](https://access.redhat.com/documentation/en-us/red_hat_ansible_automation_platform/2.3/html/red_hat_ansible_automation_platform_operations_guide/assembly-aap-activate#proc-aap-activate-with-credentials_activate-aap)\n{{??}}\n* [Importing a subscription](https://access.redhat.com/documentation/en-us/red_hat_ansible_automation_platform/2.4/html/automation_controller_user_guide/controller-managing-subscriptions#controller-importing-subscriptions)\n{{?}}\n\n\nAfter applying the remediation, refresh the results of Advisor analysis by running the `insights-client` command on the system.\n~~~\n# insights-client\n~~~\n",
+                    "resolution_risk": {
+                        "name": "Update License",
+                        "risk": 1
+                    },
+                    "has_playbook": false
+                }
+            ],
+            "total_risk": 3,
+            "hosts_acked_count": 0,
+            "rating": 0
+        },
+        {
+            "rule_id": "aap_subscription_expiration|AAP_SUBSCRIPTION_EXPIRE_INFO",
+            "created_at": "2024-03-28T14:32:50.478922Z",
+            "updated_at": "2024-06-24T20:33:22.660591Z",
+            "description": "Some functionalities like running job templates and inventory sync will not be used after the Ansible Automation Platform subscription expires in less than 30 days",
+            "active": true,
+            "category": {
+                "id": 1,
+                "name": "Availability"
+            },
+            "impact": {
+                "name": "Service Inoperation",
+                "impact": 3
+            },
+            "likelihood": 2,
+            "node_id": "6988859",
+            "tags": "aap license sbr_ansible",
+            "playbook_count": 0,
+            "reboot_required": false,
+            "publish_date": "2024-03-31T05:57:00Z",
+            "summary": "Some functionalities like running job templates or workflow and dynamic inventory \nsync will not be used after the Ansible Automation Platform subscription expires \nin less than 30 days.\n",
+            "generic": "Some functionalities like running job templates or workflow and dynamic inventory \nsync will not be used after the Ansible Automation Platform subscription expires \nin less than 30 days.\n",
+            "reason": "This host is running Ansible Automation Platform automation controller **{{=pydata.version}}**.\n{{? pydata.expire_info[\"trial\"]}}\nThe trial subscription applied on the Ansible Automation Platform will expire in **{{=pydata.expire_info[\"abs_time_remaining\"]}}** day{{? pydata.expire_info[\"abs_time_remaining\"] > 1}}s{{?}}. After it expires, the following functionalities cannot be used:\n{{??}}\nThe subscription applied on the Ansible Automation Platform will expire in **{{=pydata.expire_info[\"abs_time_remaining\"]}}** day{{? pydata.expire_info[\"abs_time_remaining\"] > 1}}s{{?}}. After it expires, there is a 30-day grace period included with your subscription before the following functionalities cannot be used:\n{{?}}\n* Dynamic Inventory Sync\n* Manual Host Addition\n* Run Job Template\n* Run Workflow\n* Upgrade to newer version\n",
+            "more_info": "",
+            "impacted_systems_count": 0,
+            "reports_shown": true,
+            "rule_status": "enabled",
+            "resolution_set": [
+                {
+                    "system_type": 105,
+                    "resolution": "Red Hat recommends that you import a new valid subscription according to the document below.\n\n{{? pydata.version == \"2.3\"}}\n* [Activating Red Hat Ansible Automation Platform](https://access.redhat.com/documentation/en-us/red_hat_ansible_automation_platform/2.3/html/red_hat_ansible_automation_platform_operations_guide/assembly-aap-activate#proc-aap-activate-with-credentials_activate-aap)\n{{??}}\n* [Importing a subscription](https://access.redhat.com/documentation/en-us/red_hat_ansible_automation_platform/2.4/html/automation_controller_user_guide/controller-managing-subscriptions#controller-importing-subscriptions)\n{{?}}\n\n\nAfter applying the remediation, refresh the results of Advisor analysis by running the `insights-client` command on the system.\n~~~\n# insights-client\n~~~\n",
+                    "resolution_risk": {
+                        "name": "Update License",
+                        "risk": 1
+                    },
+                    "has_playbook": false
+                }
+            ],
+            "total_risk": 2,
+            "hosts_acked_count": 0,
+            "rating": 0
+        },
+        {
+            "rule_id": "aap_subscription_expiration|AAP_SUBSCRIPTION_EXPIRE_WARN",
+            "created_at": "2024-03-28T14:32:50.503151Z",
+            "updated_at": "2024-06-24T20:33:22.694035Z",
+            "description": "Some functionalities like running job templates and inventory sync will not be used after the Ansible Automation Platform subscription expires in less than 7 days",
+            "active": true,
+            "category": {
+                "id": 1,
+                "name": "Availability"
+            },
+            "impact": {
+                "name": "Service Inoperation",
+                "impact": 3
+            },
+            "likelihood": 3,
+            "node_id": "6988859",
+            "tags": "aap license sbr_ansible",
+            "playbook_count": 0,
+            "reboot_required": false,
+            "publish_date": "2024-03-31T05:57:00Z",
+            "summary": "Some functionalities like running job templates or workflow and dynamic inventory \nsync will not be used after the Ansible Automation Platform subscription expires \nin less than 7 days.\n",
+            "generic": "Some functionalities like running job templates or workflow and dynamic inventory \nsync will not be used after the Ansible Automation Platform subscription expires \nin less than 7 days.\n",
+            "reason": "This host is running Ansible Automation Platform automation controller **{{=pydata.version}}**.\n{{? pydata.expire_info[\"trial\"]}}\nThe trial subscription applied on the Ansible Automation Platform will expire in **{{=pydata.expire_info[\"time_remaining\"]}}** day{{? pydata.expire_info[\"time_remaining\"] > 1}}s{{?}}. After it expires, the following functionalities cannot be used:\n{{??}}\nThe subscription applied on the Ansible Automation Platform will expire in **{{=pydata.expire_info[\"abs_time_remaining\"]}}** day{{? pydata.expire_info[\"abs_time_remaining\"] > 1}}s{{?}}. After it expires, there is a 30-day grace period included with your subscription before the following functionalities cannot be used:\n{{?}}\n* Dynamic Inventory Sync\n* Manual Host Addition\n* Run Job Template\n* Run Workflow\n* Upgrade to newer version\n",
+            "more_info": "",
+            "impacted_systems_count": 0,
+            "reports_shown": true,
+            "rule_status": "enabled",
+            "resolution_set": [
+                {
+                    "system_type": 105,
+                    "resolution": "Red Hat recommends that you import a new valid subscription according to the document below.\n\n{{? pydata.version == \"2.3\"}}\n* [Activating Red Hat Ansible Automation Platform](https://access.redhat.com/documentation/en-us/red_hat_ansible_automation_platform/2.3/html/red_hat_ansible_automation_platform_operations_guide/assembly-aap-activate#proc-aap-activate-with-credentials_activate-aap)\n{{??}}\n* [Importing a subscription](https://access.redhat.com/documentation/en-us/red_hat_ansible_automation_platform/2.4/html/automation_controller_user_guide/controller-managing-subscriptions#controller-importing-subscriptions)\n{{?}}\n\n\nAfter applying the remediation, refresh the results of Advisor analysis by running the `insights-client` command on the system.\n~~~\n# insights-client\n~~~\n",
+                    "resolution_risk": {
+                        "name": "Update License",
+                        "risk": 1
+                    },
+                    "has_playbook": false
+                }
+            ],
+            "total_risk": 3,
+            "hosts_acked_count": 0,
+            "rating": 0
+        },
+        {
+            "rule_id": "abort_command_issued|ABORT_COMMAND_ISSUED",
+            "created_at": "2019-02-07T19:02:34.744417Z",
+            "updated_at": "2024-06-29T08:33:05.492564Z",
+            "description": "Performance degradation of I/O when commands timeout due to faulty storage hardware",
+            "active": true,
+            "category": {
+                "id": 3,
+                "name": "Stability"
+            },
+            "impact": {
+                "name": "Storage Performance Loss",
+                "impact": 2
+            },
+            "likelihood": 4,
+            "node_id": "27624",
+            "tags": "incident kernel sbr_kernel storage",
+            "playbook_count": 0,
+            "reboot_required": false,
+            "publish_date": "2016-10-31T04:08:30Z",
+            "summary": "\"Abort Command Issued\" messages are being detected, which are indicative of a storage area network (SAN) or hardware error.\n\nVerify if there are any issues present from the FC switch, FC cabling, zoning, or storage array. Red Hat recommends that you contact the storage vendor to review the issue encountered.",
+            "generic": "\"Abort Command Issued\" messages are being detected, which are indicative of a storage area network (SAN) or hardware error.\n\nVerify if there are any issues present from the FC switch, FC cabling, zoning, or storage array. Red Hat recommends that you contact the storage vendor to review the issue encountered.",
+            "reason": "This host has encountered **{{=pydata.total_aborts}}** occurrences of *Abort command issued* in /var/log/messages, including {{?pydata.abort_groups > 1}}multiple occurrences{{??}}1 occurrence{{?}} of 10 or more abort commands occurring within a period of an hour.  \n\n*Abort command issued* messages indicate an error condition being returned from the SAN.\n\nAn example abort command that is displayed in /var/log/messages: \n\n**{{=pydata.example_abort}}**",
+            "more_info": "",
+            "impacted_systems_count": 0,
+            "reports_shown": true,
+            "rule_status": "enabled",
+            "resolution_set": [
+                {
+                    "system_type": 105,
+                    "resolution": "Red Hat recommends that you verify if there are any issues present from the FC switch, FC cabling, zoning, or storage array and contact the storage vendor to review the switch logs to verify if there are any error counters, CRC errors in FC switch logs to solve this issue.\n\n\nAfter applying the remediation, refresh the results of Advisor analysis by running the `insights-client` command on the system. \n~~~ \n# insights-client \n~~~ \n",
+                    "resolution_risk": {
+                        "name": "Hardware Vendor Analysis",
+                        "risk": 1
+                    },
+                    "has_playbook": false
+                }
+            ],
+            "total_risk": 3,
+            "hosts_acked_count": 0,
+            "rating": 0
+        },
+        {
+            "rule_id": "abrt_consume_high_cpu|ABRTD_CONSUME_HIGH_CPU_ERROR",
+            "created_at": "2022-09-27T08:31:07.277548Z",
+            "updated_at": "2024-06-24T20:33:22.763591Z",
+            "description": "The abrtd process causes a high CPU usage due to a known bug",
+            "active": true,
+            "category": {
+                "id": 4,
+                "name": "Performance"
+            },
+            "impact": {
+                "name": "CPU Performance Loss",
+                "impact": 2
+            },
+            "likelihood": 4,
+            "node_id": "4082791",
+            "tags": "incident performance sbr_services",
+            "playbook_count": 1,
+            "reboot_required": false,
+            "publish_date": "2022-10-09T04:04:00Z",
+            "summary": "The `abrtd` process consumes a high CPU due to a known bug in the `abrt` package.\n",
+            "generic": "The `abrtd` process consumes a high CPU due to a known bug in the `abrt` package.\n",
+            "reason": "The host is running with **{{=pydata.pkg}}** installed. The CPU usage of the `abrtd` process is **{{=pydata.cpu_usage}}**.\n",
+            "more_info": "Refer to bug [abrtd process consumes 100% of one core](https://bugzilla.redhat.com/show_bug.cgi?id=1655241) for more details.\n",
+            "impacted_systems_count": 0,
+            "reports_shown": true,
+            "rule_status": "enabled",
+            "resolution_set": [
+                {
+                    "system_type": 105,
+                    "resolution": "Red Hat recommends that you perform the following steps:\n\n{{?pydata.cur_lock && pydata.rcm_locks}}\n* Unset the release lock.\n  ~~~\n  # subscription-manager release --unset\n  ~~~\n{{?}}\n\n{{?pydata.no_base &&\n  (pydata.cur_lock==null || (pydata.cur_lock && pydata.rcm_locks))}}\n* Enable the RHEL base repo:\n  ~~~\n  # subscription-manager repos --enable={{=pydata.no_base}}\n  ~~~\n  Note: To fix the issue in the base channel, you have to enable the base channel at first.\n{{?}}\n\n{{?pydata.cur_lock && pydata.req_repos && pydata.rcm_locks==null}}\n* {{?Object.keys(pydata.req_repos).length > 1}}Enable one of the following channels{{??}}Enable the following channel{{?}}:\n  ~~~\n  {{~pydata.req_repos:e}}# subscription-manager repos --enable={{=e}}\n  {{~}}\n  ~~~\n  Note: Red Hat only provides the resolution in the required channel{{?Object.keys(pydata.req_repos).length > 1}}s{{?}}. \n{{?}}\n* Upgrade the `abrt` package:\n  ~~~\n  # yum update abrt\n  ~~~\n\n**Workaround**, if upgrading the abrt package is not an option, please restart the `abrtd` service:\n~~~\n# systemctl restart abrtd.service\n~~~\n\n\nAfter applying the remediation, refresh the results of Advisor analysis by running the `insights-client` command on the system. \n~~~ \n# insights-client \n~~~ \n",
+                    "resolution_risk": {
+                        "name": "Update Package",
+                        "risk": 1
+                    },
+                    "has_playbook": true
+                }
+            ],
+            "total_risk": 3,
+            "hosts_acked_count": 0,
+            "rating": 0
+        },
+        {
+            "rule_id": "abrt_dbus_problem_count|BAD_PROBLEM_COUNT",
+            "created_at": "2020-04-17T01:35:29.221460Z",
+            "updated_at": "2024-06-24T20:33:22.802876Z",
+            "description": "D-Bus timeout occurs when there are a large number of existing abrt crash directories",
+            "active": true,
+            "category": {
+                "id": 1,
+                "name": "Availability"
+            },
+            "impact": {
+                "name": "Service Inoperation",
+                "impact": 3
+            },
+            "likelihood": 2,
+            "node_id": "4842681",
+            "tags": "abrt dbus sbr_services",
+            "playbook_count": 1,
+            "reboot_required": false,
+            "publish_date": "2020-04-18T19:40:00Z",
+            "summary": "Due to **D-Bus** is not well-suited for data-plane transmissions, a large number of existing crashes will typically result in metadata being sent for some ABRT utilities, which can take long enough to cause timeouts and service hang. \n",
+            "generic": "Due to **D-Bus** is not well-suited for data-plane transmissions, a large number of existing crashes will typically result in metadata being sent for some ABRT utilities, which can take long enough to cause timeouts and service hang. \n",
+            "reason": "This system is running **{{=pydata.abrt_dbus}}**. There are **{{=pydata.too_many_problems}}** abrt crash directories existing. Due to D-Bus not well-suited for data-plane transmissions, it is possible that abrt utilities using D-Bus will hang when there are a large number of existing abrt crashes. \n",
+            "more_info": "",
+            "impacted_systems_count": 0,
+            "reports_shown": true,
+            "rule_status": "enabled",
+            "resolution_set": [
+                {
+                    "system_type": 105,
+                    "resolution": "Red Hat recommends that you clear abrt crash directories:\n~~~\n# abrt-cli remove /var/spool/abrt/*\n~~~\n\n\nAfter applying the remediation, refresh the results of Advisor analysis by running the `insights-client` command on the system. \n~~~ \n# insights-client \n~~~ \n",
+                    "resolution_risk": {
+                        "name": "Clean Disk Space",
+                        "risk": 3
+                    },
+                    "has_playbook": true
+                }
+            ],
+            "total_risk": 2,
+            "hosts_acked_count": 0,
+            "rating": 0
+        },
+        {
+            "rule_id": "ad_user_login_failed_due_to_sssd|AD_USER_LOGIN_FAILED_DUE_TO_SSSD",
+            "created_at": "2024-04-11T08:33:20.599034Z",
+            "updated_at": "2024-06-24T20:33:22.829283Z",
+            "description": "AD users fail to log in due to a known issue in SSSD",
+            "active": true,
+            "category": {
+                "id": 1,
+                "name": "Availability"
+            },
+            "impact": {
+                "name": "Application Failure",
+                "impact": 3
+            },
+            "likelihood": 3,
+            "node_id": "6994882",
+            "tags": "ad idm sbr_idm sssd",
+            "playbook_count": 0,
+            "reboot_required": false,
+            "publish_date": "2024-04-21T05:05:00Z",
+            "summary": "Due to a known bug in the `sssd` rpm package, AD users can fail to login with \nthe error message **\"pam_sss(pfmenu:auth): Request to sssd failed. Device or \nresource busy.\"** printed in the secure log.\n",
+            "generic": "Due to a known bug in the `sssd` rpm package, AD users can fail to login with \nthe error message **\"pam_sss(pfmenu:auth): Request to sssd failed. Device or \nresource busy.\"** printed in the secure log.\n",
+            "reason": "This host is running **RHEL {{=pydata.rhel}}**. The System Security Services\nDaemon (SSSD) is used to access the remote Active Directory (AD) domains.\nDue to a known issue in **{{=pydata.affected_pkg}}**, AD users can fail to log in.\n\nThe following AD domain{{?Object.keys(pydata.domains).length>1}}s are{{??}} is{{?}} detected in the host:\n{{ for (var index in pydata.domains){}}\n* {{=pydata.domains[index]}}\n{{} }}\n",
+            "more_info": "",
+            "impacted_systems_count": 0,
+            "reports_shown": true,
+            "rule_status": "enabled",
+            "resolution_set": [
+                {
+                    "system_type": 105,
+                    "resolution": "Red Hat recommends that you perform the following steps:\n\n{{?pydata.cur_lock && pydata.rcm_locks}}\n* Unset the release lock.\n  ~~~\n  # subscription-manager release --unset\n  ~~~\n{{?}}\n\n{{?pydata.no_base && (pydata.cur_lock==null || (pydata.cur_lock && pydata.rcm_locks))}}\n* Enable the RHEL base repo:\n  ~~~\n  # subscription-manager repos --enable={{=pydata.no_base}}\n  ~~~\n  Note: To fix the issue in the base channel, you have to enable the base channel at first.\n{{?}}\n\n{{?pydata.cur_lock && pydata.req_repos && pydata.rcm_locks==null}}\n* {{?Object.keys(pydata.req_repos).length > 1}}Enable one of the following channels{{??}}Enable the following channel{{?}}:\n  {{~pydata.req_repos:e}}\n  ~~~\n  # subscription-manager repos --enable={{=e}}\n  ~~~\n  {{~}}\n  Note: Red Hat only provides the resolution in the required channel{{?Object.keys(pydata.req_repos).length > 1}}s{{?}}.\n{{?}}\n* Update the `{{=pydata.pkg_name}}` to version **{{=pydata.pkg_ver}}** or later:\n  ~~~\n  # yum update {{=pydata.pkg_name}}\n  ~~~\n* Restart the sssd service:\n  ~~~\n  # systemctl restart sssd\n  ~~~\n\n\nAfter applying the remediation, refresh the results of Advisor analysis by running the `insights-client` command on the system. \n~~~ \n# insights-client \n~~~ \n",
+                    "resolution_risk": {
+                        "name": "Update Package",
+                        "risk": 1
+                    },
+                    "has_playbook": false
+                }
+            ],
+            "total_risk": 3,
+            "hosts_acked_count": 0,
+            "rating": 0
+        }
+    ]
+}
