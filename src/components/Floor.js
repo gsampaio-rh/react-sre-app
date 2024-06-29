@@ -1,9 +1,8 @@
-// components/Floor.js
 import React from 'react';
 import Room from './Room';
 import ExitArea from './ExitArea';
 
-function Floor({ data, affectedEquipment, showComponentDetails, fireLocation }) {
+function Floor({ data, affectedEquipment, showComponentDetails, fireLocations }) {
     return (
         <div className="container mt-5">
             <div className="container d-flex align-items-center justify-content-center">
@@ -22,7 +21,7 @@ function Floor({ data, affectedEquipment, showComponentDetails, fireLocation }) 
                                     doorPosition={room.doorPosition}
                                     showComponentDetails={showComponentDetails}
                                     isAffected={affectedEquipment.includes(room.id)}
-                                    hasFire={fireLocation === room.name}
+                                    hasFire={fireLocations.includes(room.name)}
                                 />
                             ))}
                             <ExitArea
@@ -44,7 +43,7 @@ function Floor({ data, affectedEquipment, showComponentDetails, fireLocation }) 
                                     doorPosition={room.doorPosition}
                                     showComponentDetails={showComponentDetails}
                                     isAffected={affectedEquipment.includes(room.id)}
-                                    hasFire={fireLocation === room.name}
+                                    hasFire={fireLocations.includes(room.name)}
                                 />
                             ))}
                         </div>
@@ -65,7 +64,7 @@ function Floor({ data, affectedEquipment, showComponentDetails, fireLocation }) 
                                     doorPosition={room.doorPosition}
                                     showComponentDetails={showComponentDetails}
                                     isAffected={affectedEquipment.includes(room.id)}
-                                    hasFire={fireLocation === room.name}
+                                    hasFire={fireLocations.includes(room.name)}
                                 />
                             ))}
                             <ExitArea
@@ -87,7 +86,7 @@ function Floor({ data, affectedEquipment, showComponentDetails, fireLocation }) 
                                     doorPosition={room.doorPosition}
                                     showComponentDetails={showComponentDetails}
                                     isAffected={affectedEquipment.includes(room.id)}
-                                    hasFire={fireLocation === room.name}
+                                    hasFire={fireLocations.includes(room.name)}
                                 />
                             ))}
                         </div>

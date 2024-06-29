@@ -25,12 +25,12 @@ function App() {
   const affectedEquipment = useInsights(isInsightsEnabled);
   const { showModal, selectedComponent, selectedProblem, handleClose, showComponentDetails } = useModal(isInsightsEnabled);
 
-  const [fireLocation, setFireLocation] = useState(null);
+  const [fireLocations, setFireLocations] = useState([]);
 
   useEffect(() => {
-    const fireRoomId = checkSpecificRule();
-    if (fireRoomId) {
-      setFireLocation(fireRoomId);
+    const fireRoomIds = checkSpecificRule();
+    if (fireRoomIds) {
+      setFireLocations(fireRoomIds);
     }
   }, []);
 
@@ -41,7 +41,7 @@ function App() {
         data={floorData}
         affectedEquipment={affectedEquipment}
         showComponentDetails={showComponentDetails}
-        fireLocation={fireLocation}
+        fireLocations={fireLocations}
       />
       <Footer />
       <ComponentModalWrapper
