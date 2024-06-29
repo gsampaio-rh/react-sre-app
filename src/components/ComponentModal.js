@@ -1,16 +1,15 @@
 import React, { useState } from 'react';
 import { Modal, Button } from 'react-bootstrap';
 import { useInsightsContext } from '../contexts/InsightsContext';
+import ProblemDetails from './ProblemDetails';
 
-function ComponentModal({ show, handleClose, componentData, problemData }) {
+const ComponentModal = ({ show, handleClose, componentData, problemData }) => {
     const [showCveDetails, setShowCveDetails] = useState(false);
     const { isInsightsEnabled } = useInsightsContext();
 
-    if (!componentData) {
-        return null;
-    }
+    if (!componentData) return null;
 
-    const handleLogoClick = (e) => {
+    const toggleCveDetails = (e) => {
         e.preventDefault(); // Prevent the default action to follow the link
         setShowCveDetails(!showCveDetails); // Toggle the CVE details visibility
     };
@@ -33,52 +32,19 @@ function ComponentModal({ show, handleClose, componentData, problemData }) {
                     Última revisão: {componentData.last_revision_date}<br />
                     Data de expiração: {componentData.expiration_date}
                 </div>
-                {problemData && !showCveDetails && (
-                    <>
-                        <div className="issue">
-                            <strong>{problemData.issue}</strong>
-                            {problemData.description}
-                        </div>
-                        <div className="impact">
-                            <strong>Impacto:</strong> {problemData.impact}
-                        </div>
-                        <div className="suggestions">
-                            <strong>Sugestões:</strong>
-                            <ul>
-                                {problemData.suggestions.map((suggestion, index) => (
-                                    <li key={index}>{suggestion}</li>
-                                ))}
-                            </ul>
-                        </div>
-                    </>
-                )}
-                {problemData && showCveDetails && problemData.cveDetails && (
-                    <>
-                        <div className="issue">
-                            <strong>{problemData.cveDetails.synopsis}</strong>
-                            {problemData.cveDetails.description}
-                        </div>
-                        <div className="impact">
-                            <strong>Impacto:</strong> {problemData.cveDetails.impact}
-                        </div>
-                        <div className="suggestions">
-                            <strong>Sugestões:</strong>
-                            <ul>
-                                {problemData.cveDetails.rules.map((rule, index) => (
-                                    <li key={index}>{rule.summary}</li>
-                                ))}
-                            </ul>
-                        </div>
-                    </>
-                )}
+                <ProblemDetails
+                    problemData={problemData}
+                    showCveDetails={showCveDetails}
+                    toggleCveDetails={toggleCveDetails}
+                />
             </Modal.Body>
             <Modal.Footer>
-                {isInsightsEnabled && (
+                {isInsightsEnabled && problemData && (
                     <a
                         href="https://www.redhat.com/en/technologies/management/insights"
                         target="_blank"
                         rel="noopener noreferrer"
-                        onClick={handleLogoClick}
+                        onClick={toggleCveDetails}
                     >
                         <img src="/img/redhat-insights.png" className="logo" alt="Red Hat Insights Logo" />
                     </a>
@@ -89,6 +55,6 @@ function ComponentModal({ show, handleClose, componentData, problemData }) {
             </Modal.Footer>
         </Modal>
     );
-}
+};
 
 export default ComponentModal;
