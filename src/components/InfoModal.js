@@ -1,56 +1,40 @@
 import React, { useState } from 'react';
 import { Modal, Button } from 'react-bootstrap';
+import { useInsightsContext } from '../contexts/InsightsContext';
 import ComponentDetails from './ComponentDetails';
-import MetricsSection from './MetricsSection';
+import MetricsDetails from './MetricsDetails';
 
 const InfoModal = ({ show, handleClose, componentData }) => {
-    const [currentSection, setCurrentSection] = useState('details');
+    const { isInsightsEnabled } = useInsightsContext();
+    const [showMetrics, setShowMetrics] = useState(false);
 
-    const handleNextSection = () => {
-        if (currentSection === 'details') {
-            setCurrentSection('metrics');
-        } else if (currentSection === 'metrics') {
-            setCurrentSection('slis');
-        } else if (currentSection === 'slis') {
-            setCurrentSection('slos');
-        }
-    };
+    if (!componentData) return null;
 
-    const handlePreviousSection = () => {
-        if (currentSection === 'slos') {
-            setCurrentSection('slis');
-        } else if (currentSection === 'slis') {
-            setCurrentSection('metrics');
-        } else if (currentSection === 'metrics') {
-            setCurrentSection('details');
-        }
+    const headerClass = 'info';
+
+    const toggleMetrics = () => {
+        setShowMetrics(!showMetrics);
     };
 
     return (
         <Modal show={show} onHide={handleClose}>
-            <Modal.Header closeButton className="info">
+            <Modal.Header closeButton className={headerClass}>
                 <Modal.Title>Detalhes do Componente</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                <div className="alert-icon-container">
-                    <img src="/img/lamp.png" className="lamp-icon" alt="Lamp Icon" />
+                <div className="alert-icon-container" onClick={toggleMetrics}>
+                    <img src="/img/lamp.png"
+                        className="lamp-icon"
+                        alt="Lamp Icon"
+                    />
                 </div>
-                {currentSection === 'details' && (
-                    <ComponentDetails componentData={componentData} />
-                )}
-                {currentSection !== 'details' && <MetricsSection currentSection={currentSection} />}
+                <ComponentDetails componentData={componentData} />
+                {showMetrics && <MetricsDetails />}
             </Modal.Body>
             <Modal.Footer>
-                <div className="footer-buttons">
-                    {currentSection !== 'details' && (
-                        <Button variant="secondary" onClick={handlePreviousSection}>
-                            Voltar
-                        </Button>
-                    )}
-                    <Button variant="primary" onClick={currentSection === 'slos' ? handleClose : handleNextSection}>
-                        {currentSection === 'slos' ? 'Fechar' : 'Próximo'}
-                    </Button>
-                </div>
+                <Button variant="secondary" onClick={handleClose}>
+                    Fechar
+                </Button>
             </Modal.Footer>
         </Modal>
     );
