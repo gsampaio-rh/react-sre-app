@@ -15,7 +15,8 @@ import Sidebar from './components/Sidebar';
 import { useInsights } from './hooks/useInsights';
 import { useModal } from './hooks/useModal';
 import { useSidebar } from './hooks/useSidebar';
-import floorData from './assets/data/floorData.json'; // Import the JSON data
+import checkSpecificRule from './services/checkRule';
+import floorData from './assets/data/floorData.json';
 
 function App() {
   const { isSidebarVisible, isInsightsEnabled, handleMenuClick, toggleInsights, closeSidebar } = useSidebar();
@@ -23,6 +24,13 @@ function App() {
   const { showModal, selectedComponent, selectedProblem, handleClose, showComponentDetails } = useModal(isInsightsEnabled);
 
   const [fireLocation, setFireLocation] = useState(null);
+
+  useEffect(() => {
+    const fireRoomId = checkSpecificRule();
+    if (fireRoomId) {
+      setFireLocation(fireRoomId);
+    }
+  }, []);
 
   const handleAddFire = (location) => {
     setFireLocation(location);
@@ -50,7 +58,6 @@ function App() {
         isInsightsEnabled={isInsightsEnabled}
         toggleInsights={toggleInsights}
       />
-      <button onClick={() => handleAddFire('Sala Vermelha')}>Add Fire to Sala Vermelha</button>
     </div>
   );
 }
