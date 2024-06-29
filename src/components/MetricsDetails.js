@@ -1,8 +1,8 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUsers, faHourglassHalf, faThumbsUp, faWrench, faChartLine } from '@fortawesome/free-solid-svg-icons';
-import { useInsightsContext } from '../contexts/InsightsContext';
 import metricsData from '../assets/data/sli_slo.json';
+import { useInsightsContext } from '../contexts/InsightsContext';
 
 // Create a mapping of icon names to FontAwesome icon objects
 const iconMapping = {
@@ -12,22 +12,16 @@ const iconMapping = {
     faWrench: faWrench
 };
 
-const MetricsDetails = ({ onMetricClick, selectedMetric, onChartIconHover, onChartIconLeave }) => {
+const MetricsDetails = ({ flippedMetrics, onMetricClick, onChartIconHover, onChartIconLeave }) => {
     const { isInsightsEnabled } = useInsightsContext();
-
-    const handleMetricClick = (id) => {
-        if (isInsightsEnabled) {
-            onMetricClick(id);
-        }
-    };
 
     return (
         <div className="metrics-details">
             {metricsData.map(metric => (
                 <div
                     key={metric.id}
-                    className={`metric ${selectedMetric === metric.id ? 'flipped' : ''}`}
-                    onClick={() => handleMetricClick(metric.id)}
+                    className={`metric ${flippedMetrics[metric.id] ? 'flipped' : ''}`}
+                    onClick={() => isInsightsEnabled && onMetricClick(metric.id)}
                 >
                     <div className="metric-inner">
                         <div className="metric-front">

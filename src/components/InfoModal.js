@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Modal, Button } from 'react-bootstrap';
 import { useInsightsContext } from '../contexts/InsightsContext';
 import ComponentDetails from './ComponentDetails';
@@ -6,15 +6,18 @@ import MetricsDetails from './MetricsDetails';
 
 const InfoModal = ({ show, handleClose, componentData }) => {
     const { isInsightsEnabled } = useInsightsContext();
-    const [selectedMetric, setSelectedMetric] = useState(null);
     const [hoveredMetric, setHoveredMetric] = useState(null);
+    const [flippedMetrics, setFlippedMetrics] = useState({});
 
     if (!componentData) return null;
 
     const headerClass = 'info';
 
     const handleMetricClick = (metricId) => {
-        setSelectedMetric(selectedMetric === metricId ? null : metricId);
+        setFlippedMetrics(prevState => ({
+            ...prevState,
+            [metricId]: !prevState[metricId]
+        }));
     };
 
     const handleChartIconHover = (metricId) => {
@@ -39,8 +42,8 @@ const InfoModal = ({ show, handleClose, componentData }) => {
                 )}
                 {isInsightsEnabled && (
                     <MetricsDetails
+                        flippedMetrics={flippedMetrics}
                         onMetricClick={handleMetricClick}
-                        selectedMetric={selectedMetric}
                         onChartIconHover={handleChartIconHover}
                         onChartIconLeave={handleChartIconLeave}
                     />
