@@ -1,10 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Modal, Button } from 'react-bootstrap';
 
 function ComponentModal({ show, handleClose, componentData, problemData }) {
+    const [showCveDetails, setShowCveDetails] = useState(false);
+
     if (!componentData) {
         return null;
     }
+
+    const handleLogoClick = (e) => {
+        e.preventDefault(); // Prevent the default action to follow the link
+        setShowCveDetails(!showCveDetails); // Toggle the CVE details visibility
+    };
 
     return (
         <Modal show={show} onHide={handleClose}>
@@ -41,12 +48,21 @@ function ComponentModal({ show, handleClose, componentData, problemData }) {
                                 ))}
                             </ul>
                         </div>
+                        {showCveDetails && problemData.cveDetails && (
+                            <div className="cve-details">
+                                <strong>CVE Detalhes:</strong><br />
+                                CVSS3 Score: {problemData.cveDetails.cvss3_score}<br />
+                                Descrição: {problemData.cveDetails.description}<br />
+                                Impacto: {problemData.cveDetails.impact}<br />
+                                Reboot Required: {problemData.cveDetails.rules.some(rule => rule.reboot_required) ? 'Yes' : 'No'}<br />
+                            </div>
+                        )}
                     </>
                 )}
             </Modal.Body>
             <Modal.Footer>
                 {problemData && (
-                    <a href="https://www.redhat.com/en/technologies/management/insights" target="_blank" rel="noopener noreferrer">
+                    <a href="https://www.redhat.com/en/technologies/management/insights" target="_blank" rel="noopener noreferrer" onClick={handleLogoClick}>
                         <img src="/img/redhat-insights.png" className="logo" alt="Red Hat Insights Logo" />
                     </a>
                 )}
