@@ -5,7 +5,7 @@ import { useInsightsContext } from '../contexts/InsightsContext';
 
 const FireModal = ({ show, handleClose, roomId }) => {
     const [showDetailedInfo, setShowDetailedInfo] = useState(false);
-    const { isInsightsEnabled } = useInsightsContext();
+    const { isInsightsEnabled, isAnsibleEnabled } = useInsightsContext();
     const ruleId = "hardening_logging_auditd|HARDENING_LOGGING_5_AUDITD";
     const rule = ruleData.data.find(rule => rule.rule_id === ruleId);
 
@@ -70,6 +70,16 @@ const FireModal = ({ show, handleClose, roomId }) => {
                         style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}
                     >
                         <img src="/img/redhat-insights.png" className="logo" alt="Red Hat Insights Logo" style={{ width: '150px', marginRight: '10px' }} />
+                    </a>
+                )}
+                {isInsightsEnabled && isAnsibleEnabled && (
+                    <a
+                        href="https://console.redhat.com/insights/remediations/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}
+                    >
+                        <img src="/img/ansible.png" className="logo" alt="Ansible Logo" style={{ width: '150px', marginLeft: '10px' }} />
                     </a>
                 )}
                 <Button variant="secondary" onClick={handleClose} style={{ backgroundColor: '#6c757d', borderColor: '#6c757d' }}>

@@ -4,14 +4,18 @@ const InsightsContext = createContext();
 
 export const InsightsProvider = ({ children }) => {
     const [isInsightsEnabled, setIsInsightsEnabled] = useState(false);
+    const [isAnsibleEnabled, setIsAnsibleEnabled] = useState(false);
 
     const toggleInsights = () => {
         setIsInsightsEnabled(prevState => !prevState);
-        console.log(`Insights enabled: ${!isInsightsEnabled}`); // Debug log
+    };
+
+    const toggleAnsible = () => {
+        setIsAnsibleEnabled(prevState => !prevState);
     };
 
     return (
-        <InsightsContext.Provider value={{ isInsightsEnabled, toggleInsights }}>
+        <InsightsContext.Provider value={{ isInsightsEnabled, toggleInsights, isAnsibleEnabled, toggleAnsible }}>
             {children}
         </InsightsContext.Provider>
     );

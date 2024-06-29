@@ -2,7 +2,7 @@ import React from 'react';
 import { useInsightsContext } from '../contexts/InsightsContext';
 
 function Sidebar({ isVisible, handleClose }) {
-    const { isInsightsEnabled, toggleInsights } = useInsightsContext();
+    const { isInsightsEnabled, toggleInsights, isAnsibleEnabled, toggleAnsible } = useInsightsContext();
 
     return (
         <div className={`sidebar ${isVisible ? 'visible' : ''}`}>
@@ -16,6 +16,12 @@ function Sidebar({ isVisible, handleClose }) {
                     <span className="slider round"></span>
                 </label>
                 <span>Enable Red Hat Insights</span>
+                <br />
+                <label className="switch">
+                    <input type="checkbox" checked={isAnsibleEnabled} onChange={toggleAnsible} />
+                    <span className="slider round"></span>
+                </label>
+                <span>Enable Ansible</span>
             </div>
         </div>
     );
