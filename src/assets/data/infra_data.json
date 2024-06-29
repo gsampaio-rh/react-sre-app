@@ -1,0 +1,69 @@
+{
+    "equipment": {
+        "fire_extinguisher": {
+            "name": "Extintor de Incêndio",
+            "location": "Corredor Principal",
+            "status": "Operacional",
+            "related_problems": [
+                "CVE-2018-3639"
+            ],
+            "last_revision_date": "2024-06-01",
+            "expiration_date": "2025-06-01"
+        },
+        "elevator": {
+            "name": "Elevador",
+            "location": "Corredor Principal",
+            "status": "Operacional",
+            "related_problems": [],
+            "last_revision_date": "2024-06-01",
+            "expiration_date": "2025-06-01"
+        },
+        "stairs_top": {
+            "name": "Escadas (Topo)",
+            "location": "Corredor Principal",
+            "status": "Operacional",
+            "related_problems": [],
+            "last_revision_date": "2024-06-01",
+            "expiration_date": "2025-06-01"
+        },
+        "stairs_bottom": {
+            "name": "Escadas (Base)",
+            "location": "Corredor Principal",
+            "status": "Operacional",
+            "related_problems": [],
+            "last_revision_date": "2024-06-01",
+            "expiration_date": "2025-06-01"
+        },
+        "exit-area-top": {
+            "name": "Área de Saída (Topo)",
+            "location": "Corredor Principal",
+            "status": "Operacional",
+            "related_problems": [],
+            "last_revision_date": "2024-06-01",
+            "expiration_date": "2025-06-01"
+        },
+        "exit-area-bottom": {
+            "name": "Área de Saída (Base)",
+            "location": "Corredor Principal",
+            "status": "Operacional",
+            "related_problems": [],
+            "last_revision_date": "2024-06-01",
+            "expiration_date": "2025-06-01"
+        }
+    },
+    "problems": {
+        "CVE-2018-3639": {
+            "issue": "Problema no Extintor de Incêndio",
+            "description": "O extintor de incêndio pode não estar funcionando corretamente devido ao microcódigo desatualizado.",
+            "impact": "O extintor de incêndio pode não funcionar em caso de emergência, levando a potenciais riscos de segurança.",
+            "suggestions": [
+                "Verifique o microcódigo do extintor de incêndio.",
+                "Atualize o microcódigo para a versão mais recente.",
+                "Garanta a manutenção e testes regulares do extintor de incêndio."
+            ],
+            "related_equipment": [
+                "fire_extinguisher"
+            ]
+        }
+    }
+}

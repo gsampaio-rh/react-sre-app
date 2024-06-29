@@ -1,19 +1,19 @@
 /* General styles */
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
 }
 
 .navbar-brand {
-    font-weight: bold;
+    font-weight: bold !important;
 }
 
 .footer {
-    background-color: #f8f9fa;
+    background-color: #f8f9fa !important;
 }
 
 .feature {
-    text-align: center;
-    padding: 20px;
+    text-align: center !important;
+    padding: 20px !important;
 }
 
 /* Floor plan styles */
@@ -28,212 +28,222 @@ body {
     margin-bottom: 60px;
 }
 
+/* Floor plan styles */
+.floor {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    height: 500px !important;
+    width: 1200px !important;
+    border: 1px solid #000 !important;
+    margin-bottom: 60px !important;
+}
+
 .corridor {
-    height: 150px;
-    width: 1100px;
-    display: flex;
-    border: 1px dashed #000;
-    justify-content: center;
-    align-items: center;
-    font-size: 20px;
+    height: 150px !important;
+    width: 1100px !important;
+    display: flex !important;
+    border: 1px dashed #000 !important;
+    justify-content: center !important;
+    align-items: center !important;
+    font-size: 20px !important;
 }
 
 /* Room styles */
 .room {
-    position: relative;
-    height: 150px;
-    width: 300px;
-    margin: 10px;
-    color: white;
-    border: 5px solid black;
-    /* Thick border for walls */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 14px;
-    /* Slightly smaller text for blueprint style */
-    text-align: center;
+    position: relative !important;
+    height: 150px !important;
+    width: 200px !important;
+    margin: 10px !important;
+    color: white !important;
+    border: 5px solid black !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    font-size: 14px !important;
+    text-align: center !important;
 }
 
 /* Transparency settings for rooms */
 .sala-roxa {
-    background-color: rgba(142, 68, 173, 0.5);
+    background-color: rgba(142, 68, 173, 0.5) !important;
 }
 
 .sala-azul {
-    background-color: rgba(52, 152, 219, 0.5);
+    background-color: rgba(52, 152, 219, 0.5) !important;
 }
 
 .sala-rosa {
-    background-color: rgba(233, 30, 99, 0.5);
+    background-color: rgba(233, 30, 99, 0.5) !important;
 }
 
 .sala-verde {
-    background-color: rgba(39, 174, 96, 0.5);
+    background-color: rgba(39, 174, 96, 0.5) !important;
 }
 
 .sala-vermelha {
-    background-color: rgba(231, 76, 60, 0.5);
+    background-color: rgba(231, 76, 60, 0.5) !important;
 }
 
 .sala-amarela {
-    background-color: rgba(241, 196, 15, 0.5);
+    background-color: rgba(241, 196, 15, 0.5) !important;
 }
 
 .sala-marrom {
-    background-color: rgba(121, 85, 72, 0.5);
+    background-color: rgba(121, 85, 72, 0.5) !important;
 }
 
 .sala-laranja {
-    background-color: rgba(255, 165, 0, 0.5);
+    background-color: rgba(255, 165, 0, 0.5) !important;
 }
 
 /* Person counter styles */
 .room .person-counter-top,
 .room .person-counter-bottom {
-    position: absolute;
-    left: 10px;
-    font-size: 15px;
+    position: absolute !important;
+    left: 10px !important;
+    font-size: 15px !important;
 }
 
 .room .person-counter-top {
-    top: 10px;
+    top: 10px !important;
 }
 
 .room .person-counter-bottom {
-    bottom: 10px;
+    bottom: 10px !important;
 }
 
 .room .button-container {
-    position: absolute;
-    right: 10px;
-    bottom: 10px;
-    display: flex;
-    gap: 5px;
+    position: absolute !important;
+    right: 10px !important;
+    bottom: 10px !important;
+    display: flex !important;
+    gap: 5px !important;
 }
 
 .room .button-container button {
-    border: none;
-    border-radius: 5px;
-    padding: 5px 10px;
-    font-size: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+    border: none !important;
+    border-radius: 5px !important;
+    padding: 5px 10px !important;
+    font-size: 5px !important;
+    cursor: pointer !important;
+    transition: background-color 0.3s ease !important;
 }
 
 .room .button-container button:hover {
-    background-color: #ccc;
+    background-color: #ccc !important;
 }
 
 .room .button-container .btn-primary {
-    background-color: #007bff;
-    color: white;
+    background-color: #007bff !important;
+    color: white !important;
 }
 
 .room .button-container .btn-danger {
-    background-color: #dc3545;
-    color: white;
+    background-color: #dc3545 !important;
+    color: white !important;
 }
 
 /* Door frame styles */
 .door-frame-bottom,
 .door-frame-top {
-    position: absolute;
-    width: 50px;
-    height: 10px;
-    background-color: #fff;
+    position: absolute !important;
+    width: 50px !important;
+    height: 10px !important;
+    background-color: #fff !important;
 }
 
 .door-frame-bottom {
-    bottom: -6px;
-    left: 50%;
-    transform: translateX(-50%);
+    bottom: -6px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
 }
 
 .door-frame-top {
-    top: -6px;
-    left: 50%;
-    transform: translateX(-50%);
+    top: -6px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
 }
 
 /* Exit area styles */
 .exit-area {
-    height: 150px;
-    width: 300px;
-    margin: 10px;
-    color: white;
-    align-items: center;
-    font-size: 14px;
-    text-align: center;
+    height: 150px !important;
+    width: 300px !important;
+    margin: 10px !important;
+    color: white !important;
+    align-items: center !important;
+    font-size: 14px !important;
+    text-align: center !important;
 }
 
 /* Stairs styles */
 .stairs {
-    height: 100px;
-    width: 200px;
-    color: white;
-    border: 3px solid black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 14px;
-    text-align: center;
-    position: relative;
+    height: 100px !important;
+    /* width: 200px !important; */
+    color: white !important;
+    border: 3px solid black !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    font-size: 14px !important;
+    text-align: center !important;
+    position: relative !important;
 }
 
 .stairs .stairs-icon {
-    position: absolute;
-    height: 80px;
+    position: absolute !important;
+    height: 80px !important;
 }
 
 .stairs-bottom {
-    margin-top: 10px;
+    margin-top: 10px !important;
 }
 
 .stairs-top {
-    margin-bottom: 12px;
+    margin-bottom: 10px !important;
 }
 
 /* Hall styles */
 .hall {
-    height: 40px;
-    width: 170px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 35px;
+    height: 40px !important;
+    width: 170px !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    font-size: 35px !important;
 }
 
-.hall-top{
-    margin-top: 10px;
+.hall-top {
+    margin-top: 10px !important;
 }
 
 .hall-bottom {
-    margin-bottom: 10px;
+    margin-bottom: 10px !important;
 }
 
 .hall .fire-extinguisher,
 .hall .exit-sign,
 .hall .elevator {
-    position: absolute;
-    cursor: pointer;
+    position: absolute !important;
+    cursor: pointer !important;
 }
 
 .hall .fire-extinguisher {
-    left: 0px;
-    height: 50px;
+    left: 0px !important;
+    height: 50px !important;
 }
 
 .hall .exit-sign {
-    right: 0px;
-    height: 35px;
-    padding-right: 5px;
+    right: 0px !important;
+    height: 35px !important;
+    padding-right: 5px !important;
 }
 
 .hall .elevator {
-    left: 0px;
-    height: 45px;
-    padding-left: 7px;
+    left: 0px !important;
+    height: 45px !important;
+    padding-left: 7px !important;
 }
 
 /* Sidebar */
@@ -441,6 +451,17 @@ body {
     /* Adjust the size as needed */
     margin-right: 190px;
     /* Add some space between the button and the logo */
+}
+
+/* Revision dates styles */
+.revision-dates {
+    margin-top: 10px;
+    font-size: 12px;
+    color: #555;
+}
+
+.revision-dates p {
+    margin: 0;
 }
 
 @keyframes flash {
