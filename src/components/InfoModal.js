@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Modal, Button } from 'react-bootstrap';
 import { useInsightsContext } from '../contexts/InsightsContext';
 import ComponentDetails from './ComponentDetails';
@@ -6,17 +6,12 @@ import MetricsDetails from './MetricsDetails';
 
 const InfoModal = ({ show, handleClose, componentData }) => {
     const { isInsightsEnabled } = useInsightsContext();
-    const [showMetrics, setShowMetrics] = useState(false);
     const [selectedMetric, setSelectedMetric] = useState(null);
     const [hoveredMetric, setHoveredMetric] = useState(null);
 
     if (!componentData) return null;
 
     const headerClass = 'info';
-
-    const toggleMetrics = () => {
-        setShowMetrics(!showMetrics);
-    };
 
     const handleMetricClick = (metricId) => {
         setSelectedMetric(selectedMetric === metricId ? null : metricId);
@@ -36,19 +31,13 @@ const InfoModal = ({ show, handleClose, componentData }) => {
                 <Modal.Title>Detalhes do Componente</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                <div className="alert-icon-container" onClick={toggleMetrics}>
-                    <img src="/img/lamp.png"
-                        className="lamp-icon"
-                        alt="Lamp Icon"
-                    />
-                </div>
                 {!hoveredMetric && <ComponentDetails componentData={componentData} />}
                 {hoveredMetric && (
                     <div className="chart-container">
                         <img src={`/img/${hoveredMetric}.png`} alt="Chart" />
                     </div>
                 )}
-                {showMetrics && (
+                {isInsightsEnabled && (
                     <MetricsDetails
                         onMetricClick={handleMetricClick}
                         selectedMetric={selectedMetric}

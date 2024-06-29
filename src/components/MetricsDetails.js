@@ -1,6 +1,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUsers, faHourglassHalf, faThumbsUp, faWrench, faChartLine } from '@fortawesome/free-solid-svg-icons';
+import { useInsightsContext } from '../contexts/InsightsContext';
 import metricsData from '../assets/data/sli_slo.json';
 
 // Create a mapping of icon names to FontAwesome icon objects
@@ -12,6 +13,13 @@ const iconMapping = {
 };
 
 const MetricsDetails = ({ onMetricClick, selectedMetric, onChartIconHover, onChartIconLeave }) => {
+    const { isInsightsEnabled } = useInsightsContext();
+
+    const handleMetricClick = (id) => {
+        if (isInsightsEnabled) {
+            onMetricClick(id);
+        }
+    };
 
     return (
         <div className="metrics-details">
@@ -19,7 +27,7 @@ const MetricsDetails = ({ onMetricClick, selectedMetric, onChartIconHover, onCha
                 <div
                     key={metric.id}
                     className={`metric ${selectedMetric === metric.id ? 'flipped' : ''}`}
-                    onClick={() => onMetricClick(metric.id)}
+                    onClick={() => handleMetricClick(metric.id)}
                 >
                     <div className="metric-inner">
                         <div className="metric-front">
