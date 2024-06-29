@@ -1,11 +1,11 @@
-import ruleData from '../assets/data/rule.json';
+import ruleData from '../assets/data/rule_impacting.json';
 
 const checkSpecificRule = () => {
     const ruleToRoomMapping = {
-        "abort_command_issued|ABORT_COMMAND_ISSUED": "Sala Verde"
+        "hardening_logging_auditd|HARDENING_LOGGING_5_AUDITD": "Sala Verde"
     };
 
-    const specificRuleId = "abort_command_issued|ABORT_COMMAND_ISSUED";
+    const specificRuleId = "hardening_logging_auditd|HARDENING_LOGGING_5_AUDITD";
     const specificRule = ruleData.data.find(rule => rule.rule_id === specificRuleId);
 
     if (specificRule) {

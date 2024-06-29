@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { Modal, Button } from 'react-bootstrap';
-import ruleData from '../assets/data/rule.json';
+import ruleData from '../assets/data/rule_impacting.json';
 import { useInsightsContext } from '../contexts/InsightsContext';
 
 const FireModal = ({ show, handleClose, roomId }) => {
     const [showDetailedInfo, setShowDetailedInfo] = useState(false);
     const { isInsightsEnabled } = useInsightsContext();
-    const ruleId = "abort_command_issued|ABORT_COMMAND_ISSUED";
+    const ruleId = "hardening_logging_auditd|HARDENING_LOGGING_5_AUDITD";
     const rule = ruleData.data.find(rule => rule.rule_id === ruleId);
 
     if (!rule) {
