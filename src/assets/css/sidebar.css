@@ -189,3 +189,41 @@ input:checked+.slider:before {
     background-color: #005bb5;
 }
 
+.ai-label {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.25rem 0.5rem;
+    border-radius: 3px;
+    margin-top: 0.5rem;
+}
+
+.ai-label.warning {
+    background-color: #f1c40f;
+    color: #333;
+}
+
+.ai-label.critical {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.ai-label.info {
+    background-color: #3498db;
+    color: white;
+}
+
+.ai-label.security {
+    background-color: #9b59b6;
+    color: white;
+}
+
+.ai-label.emergency {
+    background-color: #e67e22;
+    color: white;
+}
+
+.ai-label.error {
+    background-color: #c0392b;
+    color: white;
+}
