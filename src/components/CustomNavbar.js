@@ -9,7 +9,7 @@ function CustomNavbar({ handleMenuClick }) {
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="ml-auto">
                     <Nav.Link href="#" onClick={() => handleMenuClick('home')}>Home</Nav.Link>
-                    <Nav.Link href="#" onClick={() => handleMenuClick('notifications')}>Notifications</Nav.Link>
+                    <Nav.Link href="#" onClick={() => handleMenuClick('logs')}>Logs</Nav.Link>
                     <Nav.Link href="#" onClick={() => handleMenuClick('config')}>Config</Nav.Link>
                 </Nav>
             </Navbar.Collapse>

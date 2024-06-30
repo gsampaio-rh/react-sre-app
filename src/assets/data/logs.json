@@ -1,11 +1,47 @@
 [
-    { "time": "15:52:00", "event": "Relatos de cheiro de fumaça nas proximidades das salas AZUL e VERDE" },
-    { "time": "15:57:00", "event": "Alarmes de incêndio dispararam" },
-    { "time": "16:02:00", "event": "Equipe de segurança verifica a origem do fogo" },
-    { "time": "16:07:00", "event": "Início do uso de extintores e acionamento dos sprinklers" },
-    { "time": "16:22:00", "event": "Chegada dos bombeiros" },
-    { "time": "16:52:00", "event": "Incêndio parcialmente controlado" },
-    { "time": "17:22:00", "event": "Incêndio totalmente controlado" },
-    { "time": "17:52:00", "event": "Início da inspeção preliminar" },
-    { "time": "18:22:00", "event": "Área isolada para investigação" }
+    {
+        "time": "15:52:00",
+        "event": "Relatos de cheiro de fumaça nas proximidades das salas AZUL e VERDE",
+        "server_log": "Jun 25 15:52:00 server1 kernel: [12345.678901] [WARNING] CPU usage at 95% due to process ID 2356 (java)."
+    },
+    {
+        "time": "15:57:00",
+        "event": "Alarmes de incêndio dispararam",
+        "server_log": "Jun 25 15:57:00 server1 kernel: [12350.678902] [CRITICAL] Memory usage at 98%, process ID 2356 (java) consuming 4GB RAM."
+    },
+    {
+        "time": "16:02:00",
+        "event": "Equipe de segurança verifica a origem do fogo",
+        "server_log": "Jun 25 16:02:00 server1 kernel: [12355.678903] [INFO] Disk space on /dev/sda1 at 90% capacity."
+    },
+    {
+        "time": "16:07:00",
+        "event": "Início do uso de extintores e acionamento dos sprinklers",
+        "server_log": "Jun 25 16:07:00 server1 kernel: [12360.678904] [INFO] Network latency increased to 200ms, possible packet loss detected."
+    },
+    {
+        "time": "16:22:00",
+        "event": "Chegada dos bombeiros",
+        "server_log": "Jun 25 16:22:00 server1 sshd[28456]: [SECURITY] Failed password for invalid user admin from 192.168.1.100 port 22 ssh2."
+    },
+    {
+        "time": "16:52:00",
+        "event": "Incêndio parcialmente controlado",
+        "server_log": "Jun 25 16:52:00 server1 systemd[1]: [CRITICAL] Service apache2.service: Main process exited, code=exited, status=1/FAILURE."
+    },
+    {
+        "time": "17:22:00",
+        "event": "Incêndio totalmente controlado",
+        "server_log": "Jun 25 17:22:00 server1 kernel: [12435.678907] [EMERGENCY] Kernel panic - not syncing: Fatal exception."
+    },
+    {
+        "time": "17:52:00",
+        "event": "Início da inspeção preliminar",
+        "server_log": "Jun 25 17:52:00 server1 kernel: [12465.678908] [ERROR] EXT4-fs error (device sda1): ext4_find_entry:1452: inode #2: comm ls: reading directory lblock 0."
+    },
+    {
+        "time": "18:22:00",
+        "event": "Área isolada para investigação",
+        "server_log": "Jun 25 18:22:00 server1 systemd[1]: [INFO] Starting service recovery for apache2.service."
+    }
 ]

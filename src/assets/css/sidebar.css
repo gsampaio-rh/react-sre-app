@@ -135,3 +135,57 @@ input:checked+.slider:before {
     font-size: 0.85rem;
     color: #333;
 }
+
+.log-entry {
+    margin-bottom: 1.5rem;
+    padding: 0.75rem;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.log-entry strong {
+    display: block;
+    font-weight: 700;
+    color: #333;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.log-entry span {
+    display: block;
+    color: #666;
+    font-size: 0.875rem;
+    line-height: 1.5;
+}
+
+.sidebar-btn {
+    display: block;
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.server-btn {
+    background-color: #28a745;
+}
+
+.server-btn:hover {
+    background-color: #218838;
+}
+
+.ai-btn{
+    background-color: #007aff;
+}
+
+.ai-btn:hover {
+    background-color: #005bb5;
+}
+

@@ -7,11 +7,12 @@ import './assets/css/sidebar.css';
 import './assets/css/notification.css';
 import './assets/css/animations.css';
 import './assets/css/modal.css';
-import Navbar from './components/Navbar';
+import CustomNavbar from './components/CustomNavbar';
 import Footer from './components/Footer';
 import Floor from './components/Floor';
 import ComponentModalWrapper from './components/ComponentModalWrapper';
 import Sidebar from './components/Sidebar';
+import LogSidebar from './components/LogSidebar';
 import { useInsights } from './hooks/useInsights';
 import { useModal } from './hooks/useModal';
 import { useSidebar } from './hooks/useSidebar';
@@ -26,6 +27,7 @@ function App() {
   const { showModal, selectedComponent, selectedProblem, handleClose, showComponentDetails } = useModal(isInsightsEnabled);
 
   const [fireLocations, setFireLocations] = useState([]);
+  const [isLogSidebarVisible, setIsLogSidebarVisible] = useState(false);
 
   useEffect(() => {
     const fireRoomIds = checkSpecificRule();
@@ -34,9 +36,17 @@ function App() {
     }
   }, []);
 
+  const handleMenuClickWrapper = (menu) => {
+    if (menu === 'logs') {
+      setIsLogSidebarVisible(!isLogSidebarVisible);
+    } else {
+      handleMenuClick(menu);
+    }
+  };
+
   return (
     <div className="App">
-      <Navbar handleMenuClick={handleMenuClick} />
+      <CustomNavbar handleMenuClick={handleMenuClickWrapper} />
       <Floor
         data={floorData}
         affectedEquipment={affectedEquipment}
@@ -53,6 +63,10 @@ function App() {
       <Sidebar
         isVisible={isSidebarVisible}
         handleClose={closeSidebar}
+      />
+      <LogSidebar
+        isVisible={isLogSidebarVisible}
+        handleClose={() => setIsLogSidebarVisible(false)}
       />
     </div>
   );

@@ -3,7 +3,6 @@ import { Modal, Button } from 'react-bootstrap';
 import { useInsightsContext } from '../contexts/InsightsContext';
 import ruleData from '../assets/data/rule_impacting.json';
 import initialReport from '../assets/data/initial_report.json';
-import logs from '../assets/data/logs.json';
 
 const FireModal = ({ show, handleClose, roomId }) => {
     const [showDetailedInfo, setShowDetailedInfo] = useState(false);
